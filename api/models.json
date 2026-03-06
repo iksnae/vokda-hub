@@ -1,0 +1,38 @@
+{
+  "generated": "2026-03-06T17:11:20+00:00",
+  "items": [
+    {
+      "id": "kokoro-82m",
+      "title": "Kokoro 82M",
+      "type": "open_model",
+      "url": "https://hub.vokda.iknsae.com/models/kokoro-82m/",
+      "summary": "The most efficient open-source TTS model available. 82M parameters, Apache 2.0, very fast inference on modest hardware — the go-to choice for edge deployment and high-volume async workloads.",
+      "license": "Apache 2.0",
+      "parameters": "82M",
+      "languages": "English (US, UK), French, Korean, Japanese, Mandarin Chinese, Spanish, Hindi, Italian, Brazilian Portuguese",
+      "tags": ["edge","fast","efficient","multilingual","self-hosted"]
+    },
+    {
+      "id": "orpheus-tts",
+      "title": "Orpheus TTS",
+      "type": "open_model",
+      "url": "https://hub.vokda.iknsae.com/models/orpheus-tts/",
+      "summary": "Canopy Labs' 3-billion-parameter open TTS model with 8 distinct named voices. Highest quality open-source English TTS available — comparable to top cloud providers for narration and content generation.",
+      "license": "Apache 2.0",
+      "parameters": "~3B",
+      "languages": "English",
+      "tags": ["high-quality","narration","self-hosted","expressive"]
+    },
+    {
+      "id": "sesame-csm-1b",
+      "title": "Sesame CSM-1B",
+      "type": "open_model",
+      "url": "https://hub.vokda.iknsae.com/models/sesame-csm/",
+      "summary": "Sesame's Conversational Speech Model — 1B parameters, Apache 2.0, specifically designed for dialog and turn-taking. The first open-source TTS model built for conversation rather than narration.",
+      "license": "Apache 2.0",
+      "parameters": "1B",
+      "languages": "English",
+      "tags": ["conversational","dialog","voice-agents","self-hosted","open-source"]
+    }
+  ]
+}

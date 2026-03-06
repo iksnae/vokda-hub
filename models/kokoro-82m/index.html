@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kokoro 82M — Vokda Hub</title>
+  <meta name="description" content="The most efficient open-source TTS model available. 82M parameters, Apache 2.0, very fast inference on modest hardware — the go-to choice for edge deployment and high-volume async workloads." />
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <link rel="alternate" type="application/atom+xml" title="Vokda Hub" href="/api/feed.xml" />
+  <link rel="canonical" href="https://hub.vokda.iknsae.com/models/kokoro-82m/" />
+</head>
+<body>
+  <nav class="site-nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <span class="logo-mark">V</span>
+      <span class="logo-text">Vokda <span class="logo-sub">Hub</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/news/" >News</a></li>
+      <li><a href="/guides/" >Guides</a></li>
+      <li><a href="/providers/" >Providers</a></li>
+      <li><a href="/models/" class="active">Models</a></li>
+    </ul>
+    <a href="https://vokda.iknsae.com" class="nav-cta" target="_blank" rel="noopener">Browse Voices →</a>
+  </div>
+</nav>
+
+  <main>
+    <article class="profile">
+  <header class="profile-header">
+    <span class="label">Open Model</span>
+    <h1>Kokoro 82M</h1>
+    <p class="profile-summary">The most efficient open-source TTS model available. 82M parameters, Apache 2.0, very fast inference on modest hardware — the go-to choice for edge deployment and high-volume async workloads.</p>
+
+    <div class="profile-meta">
+      <a href="https://github.com/hexgrad/kokoro" target="_blank" rel="noopener" class="profile-link">Website →</a>
+      
+      <a href="https://huggingface.co/hexgrad/Kokoro-82M" target="_blank" rel="noopener" class="profile-link">HuggingFace →</a>
+    </div>
+
+    <dl class="profile-stats">
+      
+      <div><dt>Pricing</dt><dd>Free (self-hosted)</dd></div>
+      <div><dt>Languages</dt><dd>English (US, UK), French, Korean, Japanese, Mandarin Chinese, Spanish, Hindi, Italian, Brazilian Portuguese</dd></div>
+      
+      <div><dt>License</dt><dd>Apache 2.0</dd></div>
+      <div><dt>Parameters</dt><dd>82M</dd></div>
+      
+    </dl>
+
+    
+    <div class="profile-tags">
+      <span class="tag">edge</span><span class="tag">fast</span><span class="tag">efficient</span><span class="tag">multilingual</span><span class="tag">self-hosted</span>
+    </div>
+    
+  </header>
+
+  <div class="profile-body">
+    <p>Kokoro 82M punches significantly above its weight class. At 82 million parameters it’s a tiny model by modern standards, but the output quality is remarkably good — good enough that it’s become a default recommendation for developers who need self-hosted TTS without renting a GPU.</p>
+
+<h2 id="why-it-matters">Why It Matters</h2>
+
+<p>The TTS model landscape has a gap problem: most open-source models that produce genuinely good audio are large (1B+), requiring significant compute. Kokoro 82M breaks that correlation. The training approach prioritizes output naturalness per parameter rather than raw scale.</p>
+
+<p>The result: you can run Kokoro on a CPU-only server, a laptop, or a Raspberry Pi-class device and get audio quality that would have required a cloud API two years ago.</p>
+
+<h2 id="technical-details">Technical Details</h2>
+
+<ul>
+  <li><strong>Parameters:</strong> 82 million</li>
+  <li><strong>License:</strong> Apache 2.0 (commercial use, modification, redistribution — all free)</li>
+  <li><strong>Architecture:</strong> Lightweight neural TTS</li>
+  <li><strong>Inference:</strong> CPU-viable, very fast on Apple Silicon via CoreML/MLX</li>
+  <li><strong>HuggingFace:</strong> <code class="language-plaintext highlighter-rouge">hexgrad/Kokoro-82M</code></li>
+</ul>
+
+<h2 id="language-support">Language Support</h2>
+
+<p>9 languages: English (US and UK accents), French, Korean, Japanese, Mandarin Chinese, Spanish, Hindi, Italian, and Brazilian Portuguese. Language quality varies — English is best, others are solid.</p>
+
+<h2 id="voices">Voices</h2>
+
+<p>Multiple voice styles available through the model configuration. Voices have distinct tonal characteristics — different enough to be useful for multi-character applications.</p>
+
+<h2 id="use-cases">Use Cases</h2>
+
+<p><strong>Best for:</strong></p>
+<ul>
+  <li>Edge deployment (IoT devices, mobile, local-first apps)</li>
+  <li>High-volume batch generation where per-character cost matters</li>
+  <li>Development/testing workflows where cloud API billing is wasteful</li>
+  <li>Privacy-sensitive applications (medical, legal, personal data)</li>
+  <li>Applications in the 9 supported languages at modest quality requirements</li>
+</ul>
+
+<p><strong>Not ideal for:</strong></p>
+<ul>
+  <li>Real-time latency-critical applications (Cartesia wins here)</li>
+  <li>Highest expressiveness requirements (Orpheus or cloud providers)</li>
+  <li>Languages outside the 9 supported</li>
+</ul>
+
+<h2 id="getting-started">Getting Started</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># via the kokoro Python package
+</span><span class="n">pip</span> <span class="n">install</span> <span class="n">kokoro</span>
+
+<span class="kn">from</span> <span class="n">kokoro</span> <span class="kn">import</span> <span class="n">KPipeline</span>
+<span class="n">pipeline</span> <span class="o">=</span> <span class="nc">KPipeline</span><span class="p">(</span><span class="n">lang_code</span><span class="o">=</span><span class="sh">'</span><span class="s">a</span><span class="sh">'</span><span class="p">)</span>  <span class="c1"># 'a' = American English
+</span><span class="n">audio</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="nf">pipeline</span><span class="p">(</span><span class="sh">"</span><span class="s">Your text here</span><span class="sh">"</span><span class="p">,</span> <span class="n">voice</span><span class="o">=</span><span class="sh">'</span><span class="s">af_heart</span><span class="sh">'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><a href="https://vokda.iknsae.com/voices?provider=kokoro">Browse Kokoro voices on Vokda →</a></p>
+
+  </div>
+
+  
+
+  <footer class="profile-footer">
+    <a href="/models/" class="back-link">← Back</a>
+  </footer>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="footer-logo">Vokda Hub</a>
+      <p>The central destination for TTS news, model tracking, and voice discovery.</p>
+    </div>
+    <nav class="footer-nav">
+      <ul>
+        <li><a href="/news/">News</a></li>
+        <li><a href="/guides/">Guides</a></li>
+        <li><a href="/providers/">Providers</a></li>
+        <li><a href="/models/">Models</a></li>
+      </ul>
+      <ul>
+        <li><a href="https://vokda.iknsae.com" target="_blank" rel="noopener">Vokda App</a></li>
+        <li><a href="/api/feed.xml">RSS Feed</a></li>
+        <li><a href="/api/news.json">API</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Vokda. Built with Jekyll.</p>
+  </div>
+</footer>
+
+</body>
+</html>

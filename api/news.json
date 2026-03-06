@@ -1,0 +1,51 @@
+{
+  "generated": "2026-03-06T17:11:20+00:00",
+  "count": 5,
+  "items": [
+    {
+      "title": "Cartesia Releases Sonic 3: Sub-80ms Latency, Real Laughter, and 40+ Languages",
+      "date": "2026-03-05",
+      "slug": "cartesia-sonic-3",
+      "url": "https://hub.vokda.iknsae.com/news/2026/03/05/cartesia-sonic-3/",
+      "summary": "Cartesia's third-generation Sonic model raises the bar for real-time voice agents with emotional expression, instant cloning, and enterprise-grade compliance.",
+      "tags": ["release","cartesia"],
+      "providerId": "cartesia"
+    },
+    {
+      "title": "Deepgram Aura-2: 40+ Named English Voices Built for Domain-Specific Accuracy",
+      "date": "2026-03-04",
+      "slug": "deepgram-aura-2-spotlight",
+      "url": "https://hub.vokda.iknsae.com/news/2026/03/04/deepgram-aura-2-spotlight/",
+      "summary": "Deepgram's Aura-2 brings 40+ mythologically-named English voices with sub-200ms latency and domain-tuned pronunciation for healthcare, finance, and legal applications.",
+      "tags": ["spotlight","deepgram"],
+      "providerId": "deepgram"
+    },
+    {
+      "title": "Sesame CSM-1B: The First TTS Model Built Specifically for Conversation",
+      "date": "2026-02-28",
+      "slug": "sesame-csm-conversational-speech",
+      "url": "https://hub.vokda.iknsae.com/news/2026/02/28/sesame-csm-conversational-speech/",
+      "summary": "Sesame's Conversational Speech Model is a 1B-parameter open-source model designed from the ground up for dialog — realistic turn-taking, natural back-channels, and Apache 2.0 licensing.",
+      "tags": ["open-source","release","sesame"],
+      "providerId": "sesame"
+    },
+    {
+      "title": "Orpheus TTS: Canopy Labs Releases 3B Open-Source Model with 8 Distinct Voices",
+      "date": "2026-02-25",
+      "slug": "orpheus-tts-canopy-labs",
+      "url": "https://hub.vokda.iknsae.com/news/2026/02/25/orpheus-tts-canopy-labs/",
+      "summary": "Canopy Labs' Orpheus is a 3-billion-parameter Apache 2.0 TTS model delivering eight named voices with expressive, natural output that competes with top cloud providers.",
+      "tags": ["open-source","release","canopy-labs"],
+      "providerId": null
+    },
+    {
+      "title": "F5-TTS: Flow-Matching Architecture Delivers Fast, High-Quality Open TTS",
+      "date": "2026-02-20",
+      "slug": "f5-tts-flow-matching",
+      "url": "https://hub.vokda.iknsae.com/news/2026/02/20/f5-tts-flow-matching/",
+      "summary": "F5-TTS uses a flow-matching architecture to achieve fast inference and high output quality under an MIT license — filling the gap between tiny edge models and large 3B+ heavyweights.",
+      "tags": ["open-source","research","f5-tts"],
+      "providerId": null
+    }
+  ]
+}

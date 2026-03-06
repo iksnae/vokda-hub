@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Choosing a Voice for Your AI Agent — Vokda Hub</title>
+  <meta name="description" content="A practical framework for selecting the right TTS provider and voice for conversational AI — covering latency, naturalness, cost, and the cases where open-source beats cloud." />
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <link rel="alternate" type="application/atom+xml" title="Vokda Hub" href="/api/feed.xml" />
+  <link rel="canonical" href="https://hub.vokda.iknsae.com/guides/choosing-a-voice-for-your-ai-agent/" />
+</head>
+<body>
+  <nav class="site-nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <span class="logo-mark">V</span>
+      <span class="logo-text">Vokda <span class="logo-sub">Hub</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/news/" >News</a></li>
+      <li><a href="/guides/" class="active">Guides</a></li>
+      <li><a href="/providers/" >Providers</a></li>
+      <li><a href="/models/" >Models</a></li>
+    </ul>
+    <a href="https://vokda.iknsae.com" class="nav-cta" target="_blank" rel="noopener">Browse Voices →</a>
+  </div>
+</nav>
+
+  <main>
+    <article class="guide">
+  <header class="guide-header">
+    <span class="label">Guide</span>
+    <h1>Choosing a Voice for Your AI Agent</h1>
+    <p class="guide-summary">A practical framework for selecting the right TTS provider and voice for conversational AI — covering latency, naturalness, cost, and the cases where open-source beats cloud.</p>
+    <p class="guide-updated">Last updated: March 1, 2026</p>
+  </header>
+
+  <div class="guide-body">
+    <p>Picking a voice for an AI agent sounds simple until you try. There are hundreds of options across a dozen providers, benchmarks that contradict each other, and pricing models that only make sense at specific scale points. This guide cuts through the noise.</p>
+
+<h2 id="the-three-axes-that-actually-matter">The Three Axes That Actually Matter</h2>
+
+<p>Every voice selection decision comes down to three things:</p>
+
+<p><strong>1. Latency</strong> — Does your agent need to respond in real-time?</p>
+
+<p>If you’re building a phone-based assistant or a live conversation UI, latency is your first filter. You need sub-200ms time-to-first-audio. That rules out most open-source models running on commodity hardware and narrows you to Cartesia (sub-80ms), ElevenLabs Flash (sub-100ms), and Deepgram Aura-2 (sub-200ms).</p>
+
+<p>If your use case is async — generating narration, processing documents, creating content — latency is irrelevant. Open-source becomes viable.</p>
+
+<p><strong>2. Voice Character</strong> — Does the voice need to feel like a person?</p>
+
+<p>Some agents can sound functional: clear, neutral, slightly robotic. Phone IVRs and appointment reminders have always sounded like this and users accept it. Others need to pass for human — therapy assistants, personal finance advisors, educational tutors. The gap in naturalness between providers is significant.</p>
+
+<p>For high-naturalness requirements: ElevenLabs (widest voice range), Cartesia (best for dialog), OpenAI (best consistency). For functional quality at lower cost: AWS Polly Neural, Azure Neural, Google WaveNet.</p>
+
+<p><strong>3. Scale and Cost</strong> — What does your usage look like at 1M+ characters/month?</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Provider</th>
+      <th>$/1K chars</th>
+      <th>Good At</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Cartesia</td>
+      <td>~$0.015–0.030</td>
+      <td>Real-time agents</td>
+    </tr>
+    <tr>
+      <td>ElevenLabs</td>
+      <td>~$0.030–0.300</td>
+      <td>High-quality narration</td>
+    </tr>
+    <tr>
+      <td>OpenAI TTS</td>
+      <td>~$0.015</td>
+      <td>Consistency, simplicity</td>
+    </tr>
+    <tr>
+      <td>Google WaveNet</td>
+      <td>~$0.016</td>
+      <td>Multilingual</td>
+    </tr>
+    <tr>
+      <td>AWS Polly Neural</td>
+      <td>~$0.016</td>
+      <td>AWS-native apps</td>
+    </tr>
+    <tr>
+      <td>Deepgram Aura-2</td>
+      <td>~$0.030</td>
+      <td>Domain-specific</td>
+    </tr>
+    <tr>
+      <td>Open-source</td>
+      <td>$0</td>
+      <td>Volume, privacy</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>At low volume (&lt;500K chars/month) the cost difference is negligible. At high volume the math changes dramatically — and open-source models become the only economically rational choice.</p>
+
+<h2 id="decision-tree">Decision Tree</h2>
+
+<p><strong>Is latency under 200ms required?</strong></p>
+
+<p>→ <strong>Yes:</strong> Use Cartesia (Sonic 3) for best-in-class, ElevenLabs Flash for highest voice quality, Deepgram Aura-2 for domain-specific accuracy.</p>
+
+<p>→ <strong>No:</strong> Proceed.</p>
+
+<p><strong>Does the content require expressive, emotional delivery?</strong></p>
+
+<p>→ <strong>Yes:</strong> ElevenLabs (studio models) or Cartesia (Sonic 3 emotional range).</p>
+
+<p>→ <strong>No:</strong> Proceed.</p>
+
+<p><strong>Is this a conversational back-and-forth exchange?</strong></p>
+
+<p>→ <strong>Yes:</strong> Cartesia Sonic 3 or Sesame CSM (open-source, specifically built for dialog).</p>
+
+<p>→ <strong>No:</strong> Proceed.</p>
+
+<p><strong>Is the content in a specialized domain (medical, legal, finance)?</strong></p>
+
+<p>→ <strong>Yes:</strong> Deepgram Aura-2.</p>
+
+<p>→ <strong>No:</strong> Proceed.</p>
+
+<p><strong>What’s your monthly volume?</strong></p>
+
+<p>→ <strong>&lt;500K chars:</strong> OpenAI TTS-1-HD or Google WaveNet — simple, high quality, manageable cost.</p>
+
+<p>→ <strong>500K–5M chars:</strong> AWS Polly Neural or Azure Neural — enterprise pricing, reliability, native cloud integrations.</p>
+
+<p>→ <strong>&gt;5M chars:</strong> Open-source (Kokoro, Orpheus, F5-TTS) — zero per-character cost.</p>
+
+<h2 id="the-case-for-open-source">The Case for Open-Source</h2>
+
+<p>Open-source TTS has crossed a quality threshold that makes it genuinely viable for production. Key models:</p>
+
+<ul>
+  <li><strong>Kokoro 82M</strong> — 82M parameters, Apache 2.0, very fast, good quality for its size. Best for edge deployment or volume workloads where cost is primary.</li>
+  <li><strong>F5-TTS</strong> — Flow-matching architecture, MIT license, fast inference, high quality. Best middle-tier option.</li>
+  <li><strong>Orpheus</strong> — 3B parameters, Apache 2.0, 8 named voices, highest open-source quality. Best for high-quality async workloads.</li>
+  <li><strong>Sesame CSM</strong> — 1B parameters, Apache 2.0, specifically built for conversation. Best for dialog-heavy applications.</li>
+</ul>
+
+<p>The cost case is straightforward: a deployment generating 10M characters/month at $0.015/1K chars = $150/month. Run Orpheus on a $40/month GPU instance = $40/month at unlimited volume.</p>
+
+<p>The privacy case is equally clear: audio content often contains sensitive information (personal data, proprietary content). Open-source models deployed locally keep that data entirely within your infrastructure.</p>
+
+<h2 id="testing-before-committing">Testing Before Committing</h2>
+
+<p>Most providers offer free tiers or credits. Before committing to a voice at scale:</p>
+
+<ol>
+  <li>Generate 20-30 samples covering your actual content domain (not generic demo text)</li>
+  <li>Test with native speakers if you’re deploying multilingual voices</li>
+  <li>Listen for mispronunciations of domain-specific terminology</li>
+  <li>Test emotional range if your content requires it</li>
+  <li>Benchmark latency under realistic network conditions, not ideal lab conditions</li>
+</ol>
+
+<p><a href="https://vokda.iknsae.com">Browse and audition voices on Vokda →</a></p>
+
+  </div>
+
+  <footer class="guide-footer">
+    <a href="/guides/" class="back-link">← All guides</a>
+  </footer>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="footer-logo">Vokda Hub</a>
+      <p>The central destination for TTS news, model tracking, and voice discovery.</p>
+    </div>
+    <nav class="footer-nav">
+      <ul>
+        <li><a href="/news/">News</a></li>
+        <li><a href="/guides/">Guides</a></li>
+        <li><a href="/providers/">Providers</a></li>
+        <li><a href="/models/">Models</a></li>
+      </ul>
+      <ul>
+        <li><a href="https://vokda.iknsae.com" target="_blank" rel="noopener">Vokda App</a></li>
+        <li><a href="/api/feed.xml">RSS Feed</a></li>
+        <li><a href="/api/news.json">API</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Vokda. Built with Jekyll.</p>
+  </div>
+</footer>
+
+</body>
+</html>

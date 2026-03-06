@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OpenAI TTS — Vokda Hub</title>
+  <meta name="description" content="Simple, consistent, and already in your stack if you're using OpenAI for the LLM layer. Six high-quality built-in voices with broad language support and the simplest API in the category." />
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <link rel="alternate" type="application/atom+xml" title="Vokda Hub" href="/api/feed.xml" />
+  <link rel="canonical" href="https://hub.vokda.iknsae.com/providers/openai/" />
+</head>
+<body>
+  <nav class="site-nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <span class="logo-mark">V</span>
+      <span class="logo-text">Vokda <span class="logo-sub">Hub</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/news/" >News</a></li>
+      <li><a href="/guides/" >Guides</a></li>
+      <li><a href="/providers/" class="active">Providers</a></li>
+      <li><a href="/models/" >Models</a></li>
+    </ul>
+    <a href="https://vokda.iknsae.com" class="nav-cta" target="_blank" rel="noopener">Browse Voices →</a>
+  </div>
+</nav>
+
+  <main>
+    <article class="profile">
+  <header class="profile-header">
+    <span class="label">Provider</span>
+    <h1>OpenAI TTS</h1>
+    <p class="profile-summary">Simple, consistent, and already in your stack if you're using OpenAI for the LLM layer. Six high-quality built-in voices with broad language support and the simplest API in the category.</p>
+
+    <div class="profile-meta">
+      <a href="https://platform.openai.com/docs/guides/text-to-speech" target="_blank" rel="noopener" class="profile-link">Website →</a>
+      <a href="https://platform.openai.com/docs/api-reference/audio/createSpeech" target="_blank" rel="noopener" class="profile-link">Docs →</a>
+      
+    </div>
+
+    <dl class="profile-stats">
+      <div><dt>Tier</dt><dd class="tier tier-startup">startup</dd></div>
+      <div><dt>Pricing</dt><dd>$0.015/1K chars (TTS-1), $0.030/1K chars (TTS-1-HD)</dd></div>
+      <div><dt>Languages</dt><dd>Afrikaans, Arabic, Armenian, Azerbaijani, Belarusian, Bosnian, Bulgarian, Catalan, Chinese, Croatian, Czech, Danish, Dutch, English, Estonian, Finnish, French, Galician, German, Greek, Hebrew, Hindi, Hungarian, Icelandic, Indonesian, Italian, Japanese, Kannada, Kazakh, Korean, Latvian, Lithuanian, Macedonian, Malay, Marathi, Maori, Nepali, Norwegian, Persian, Polish, Portuguese, Romanian, Russian, Serbian, Slovak, Slovenian, Spanish, Swahili, Swedish, Tagalog, Tamil, Thai, Turkish, Ukrainian, Urdu, Vietnamese, and Welsh</dd></div>
+      <div><dt>Voices</dt><dd>6 built-in voices</dd></div>
+      
+      
+      <div><dt>Latency</dt><dd>~200ms</dd></div>
+    </dl>
+
+    
+    <div class="profile-tags">
+      <span class="tag">simple</span><span class="tag">consistent</span><span class="tag">multilingual</span><span class="tag">openai-native</span>
+    </div>
+    
+  </header>
+
+  <div class="profile-body">
+    <p>OpenAI TTS is the path of least resistance for teams already using the OpenAI API. One SDK, one billing account, voices that are consistently good without being exceptional. For many applications that’s exactly the right tradeoff.</p>
+
+<h2 id="models">Models</h2>
+
+<p>Two model tiers:</p>
+<ul>
+  <li><strong>TTS-1</strong> — $0.015/1K chars. Optimized for real-time use. Lower latency, slightly less natural.</li>
+  <li><strong>TTS-1-HD</strong> — $0.030/1K chars. Highest quality. Best for final-output content where you’re not running under latency constraints.</li>
+</ul>
+
+<h2 id="voices">Voices</h2>
+
+<p>Six built-in voices: <strong>alloy, echo, fable, onyx, nova, shimmer</strong>. The variety covers male/female and different tonal registers (warm, neutral, crisp, deep). What they lack in character depth they make up for in consistency — these voices never sound bad, even on unusual input.</p>
+
+<h2 id="api">API</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST https://api.openai.com/v1/audio/speech
+{
+  "model": "tts-1-hd",
+  "input": "Your text here",
+  "voice": "nova"
+}
+</code></pre></div></div>
+
+<p>Response is a binary audio stream. It’s the simplest TTS API in the industry.</p>
+
+<h2 id="language-support">Language Support</h2>
+
+<p>OpenAI TTS inherits language coverage from the Whisper training corpus — it supports a remarkable 50+ languages, many of which smaller providers don’t cover at all.</p>
+
+<h2 id="when-to-use-openai-tts">When to Use OpenAI TTS</h2>
+
+<ul>
+  <li>You’re already using OpenAI for the LLM layer and want a single vendor</li>
+  <li>You need broad language coverage without evaluating alternatives</li>
+  <li>Content is general-purpose and doesn’t require expressive/emotional range</li>
+  <li>Volume is moderate (the per-character cost stacks up at high volume)</li>
+  <li>Developer productivity matters more than voice selection depth</li>
+</ul>
+
+  </div>
+
+  
+  <div class="post-related">
+    <a href="https://vokda.iknsae.com/voices?provider=openai" class="related-link external" target="_blank" rel="noopener">
+      Browse voices on Vokda →
+    </a>
+  </div>
+  
+
+  <footer class="profile-footer">
+    <a href="/providers/" class="back-link">← Back</a>
+  </footer>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="footer-logo">Vokda Hub</a>
+      <p>The central destination for TTS news, model tracking, and voice discovery.</p>
+    </div>
+    <nav class="footer-nav">
+      <ul>
+        <li><a href="/news/">News</a></li>
+        <li><a href="/guides/">Guides</a></li>
+        <li><a href="/providers/">Providers</a></li>
+        <li><a href="/models/">Models</a></li>
+      </ul>
+      <ul>
+        <li><a href="https://vokda.iknsae.com" target="_blank" rel="noopener">Vokda App</a></li>
+        <li><a href="/api/feed.xml">RSS Feed</a></li>
+        <li><a href="/api/news.json">API</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Vokda. Built with Jekyll.</p>
+  </div>
+</footer>
+
+</body>
+</html>

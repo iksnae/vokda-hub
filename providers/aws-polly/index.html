@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AWS Polly — Vokda Hub</title>
+  <meta name="description" content="Amazon's mature TTS service with neural voices across 30+ languages and tight AWS ecosystem integration. Best for AWS-native architectures where you're already in the ecosystem." />
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <link rel="alternate" type="application/atom+xml" title="Vokda Hub" href="/api/feed.xml" />
+  <link rel="canonical" href="https://hub.vokda.iknsae.com/providers/aws-polly/" />
+</head>
+<body>
+  <nav class="site-nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <span class="logo-mark">V</span>
+      <span class="logo-text">Vokda <span class="logo-sub">Hub</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/news/" >News</a></li>
+      <li><a href="/guides/" >Guides</a></li>
+      <li><a href="/providers/" class="active">Providers</a></li>
+      <li><a href="/models/" >Models</a></li>
+    </ul>
+    <a href="https://vokda.iknsae.com" class="nav-cta" target="_blank" rel="noopener">Browse Voices →</a>
+  </div>
+</nav>
+
+  <main>
+    <article class="profile">
+  <header class="profile-header">
+    <span class="label">Provider</span>
+    <h1>AWS Polly</h1>
+    <p class="profile-summary">Amazon's mature TTS service with neural voices across 30+ languages and tight AWS ecosystem integration. Best for AWS-native architectures where you're already in the ecosystem.</p>
+
+    <div class="profile-meta">
+      <a href="https://aws.amazon.com/polly/" target="_blank" rel="noopener" class="profile-link">Website →</a>
+      <a href="https://docs.aws.amazon.com/polly/" target="_blank" rel="noopener" class="profile-link">Docs →</a>
+      
+    </div>
+
+    <dl class="profile-stats">
+      <div><dt>Tier</dt><dd class="tier tier-enterprise">enterprise</dd></div>
+      <div><dt>Pricing</dt><dd>$0.004/1K chars (Standard), $0.016/1K chars (Neural)</dd></div>
+      <div><dt>Languages</dt><dd>30+</dd></div>
+      <div><dt>Voices</dt><dd>60+</dd></div>
+      
+      
+      <div><dt>Latency</dt><dd>~300ms (Neural)</dd></div>
+    </dl>
+
+    
+    <div class="profile-tags">
+      <span class="tag">aws-native</span><span class="tag">enterprise</span><span class="tag">multilingual</span><span class="tag">neural</span><span class="tag">ssml</span>
+    </div>
+    
+  </header>
+
+  <div class="profile-body">
+    <p>AWS Polly is the veteran of the cloud TTS market. It’s not the most exciting option in 2026, but it’s reliable, well-documented, deeply integrated into the AWS ecosystem, and economically attractive at scale.</p>
+
+<h2 id="voice-tiers">Voice Tiers</h2>
+
+<ul>
+  <li><strong>Standard voices</strong> — $0.004/1K chars. Concatenative synthesis, older technology, robotic-ish. Mostly useful for cost-sensitive applications where quality is secondary.</li>
+  <li><strong>Neural voices</strong> — $0.016/1K chars. Neural TTS, significantly more natural. The voices you actually want to use.</li>
+</ul>
+
+<p>Neural Polly voices are competitive with general-purpose cloud TTS — they’re not as expressive as ElevenLabs or as fast as Cartesia, but they’re solid, consistent, and cheap relative to premium providers.</p>
+
+<h2 id="ssml-support">SSML Support</h2>
+
+<p>Polly has among the best SSML support in the industry — breathing, whispering, speaking rate, volume, emphasis, and even Amazon-specific extensions for pronunciation dictionaries and phonemes. For applications that need fine-grained control over delivery, Polly’s SSML depth is genuinely useful.</p>
+
+<h2 id="aws-integration">AWS Integration</h2>
+
+<p>The native integration with the AWS ecosystem is Polly’s strongest card:</p>
+<ul>
+  <li><strong>Lambda</strong> — generate audio inline with serverless functions</li>
+  <li><strong>S3</strong> — stream generated audio directly to buckets</li>
+  <li><strong>CloudFront</strong> — serve cached audio from CDN</li>
+  <li><strong>Lex</strong> — built-in TTS for AWS chatbots</li>
+</ul>
+
+<p>If your stack is already AWS-native, adding Polly is one SDK call away.</p>
+
+<h2 id="lexicons-and-pronunciation">Lexicons and Pronunciation</h2>
+
+<p>Custom lexicons let you define pronunciation for domain-specific terms, acronyms, and brand names. This is essential for applications with specialized vocabulary — healthcare and finance deployments in particular.</p>
+
+<h2 id="when-to-use-aws-polly">When to Use AWS Polly</h2>
+
+<ul>
+  <li>Your architecture is AWS-native and you want minimal vendor sprawl</li>
+  <li>You need deep SSML control</li>
+  <li>Custom pronunciation lexicons are a requirement</li>
+  <li>Volume is high and cost is primary (Neural at $0.016/1K is competitive)</li>
+  <li>You need a mature, enterprise-supported service</li>
+</ul>
+
+  </div>
+
+  
+  <div class="post-related">
+    <a href="https://vokda.iknsae.com/voices?provider=aws-polly" class="related-link external" target="_blank" rel="noopener">
+      Browse voices on Vokda →
+    </a>
+  </div>
+  
+
+  <footer class="profile-footer">
+    <a href="/providers/" class="back-link">← Back</a>
+  </footer>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="footer-logo">Vokda Hub</a>
+      <p>The central destination for TTS news, model tracking, and voice discovery.</p>
+    </div>
+    <nav class="footer-nav">
+      <ul>
+        <li><a href="/news/">News</a></li>
+        <li><a href="/guides/">Guides</a></li>
+        <li><a href="/providers/">Providers</a></li>
+        <li><a href="/models/">Models</a></li>
+      </ul>
+      <ul>
+        <li><a href="https://vokda.iknsae.com" target="_blank" rel="noopener">Vokda App</a></li>
+        <li><a href="/api/feed.xml">RSS Feed</a></li>
+        <li><a href="/api/news.json">API</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Vokda. Built with Jekyll.</p>
+  </div>
+</footer>
+
+</body>
+</html>

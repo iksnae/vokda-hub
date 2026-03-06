@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://hub.vokda.iknsae.com/api/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hub.vokda.iknsae.com/" rel="alternate" type="text/html" /><updated>2026-03-06T17:11:20+00:00</updated><id>https://hub.vokda.iknsae.com/api/feed.xml</id><title type="html">Vokda Hub</title><subtitle>The central destination for TTS news, model tracking, guides, and provider profiles.</subtitle><author><name>Vokda</name><email>hello@vokda.com</email></author><entry><title type="html">Cartesia Releases Sonic 3: Sub-80ms Latency, Real Laughter, and 40+ Languages</title><link href="https://hub.vokda.iknsae.com/news/2026/03/05/cartesia-sonic-3/" rel="alternate" type="text/html" title="Cartesia Releases Sonic 3: Sub-80ms Latency, Real Laughter, and 40+ Languages" /><published>2026-03-05T00:00:00+00:00</published><updated>2026-03-05T00:00:00+00:00</updated><id>https://hub.vokda.iknsae.com/news/2026/03/05/cartesia-sonic-3</id><content type="html" xml:base="https://hub.vokda.iknsae.com/news/2026/03/05/cartesia-sonic-3/"><![CDATA[<p>Cartesia has released Sonic 3, the latest version of their flagship text-to-speech model — and it’s the one that other providers are now quietly benchmarking against.</p>
+
+<h2 id="whats-new-in-sonic-3">What’s New in Sonic 3</h2>
+
+<p>The headline number is <strong>sub-80ms streaming latency</strong>, making Sonic 3 fast enough for real-time conversational AI where any perceptible delay breaks the illusion. Cartesia achieves this through a custom streaming architecture using both REST and WebSocket endpoints, letting developers pick the right delivery method for their use case.</p>
+
+<p>Beyond latency, the most distinctive capability is <strong>real emotional expression and AI laughter</strong>. Unlike legacy TTS systems that bolt emotion on via SSML tags (with predictably robotic results), Sonic 3’s emotional range is learned from training data — laughter, hesitation, warmth, and urgency are baked into the model’s outputs, not post-processed. This matters most for voice agents, characters, and anything where a “natural sounding” requirement isn’t just a checkbox.</p>
+
+<p><strong>Voice cloning</strong> is another area where Sonic 3 delivers meaningfully:</p>
+<ul>
+  <li><strong>Instant Voice Cloning</strong> — 10 seconds of reference audio, live in seconds</li>
+  <li><strong>Pro Voice Cloning</strong> — fine-tuned for enterprise deployments requiring consistent, on-brand voice identity at scale</li>
+</ul>
+
+<p>Language coverage has expanded to <strong>40+ languages</strong>, putting Sonic 3 in the same tier as Azure and Google for multilingual coverage.</p>
+
+<h2 id="api">API</h2>
+
+<p>Integration is straightforward:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST https://api.cartesia.ai/tts/bytes
+POST https://api.cartesia.ai/tts/sse   # streaming
+WebSocket wss://api.cartesia.ai/tts/ws
+</code></pre></div></div>
+
+<p>A free tier is available. Paid tiers are pay-per-character. No minimum commitment.</p>
+
+<h2 id="compliance">Compliance</h2>
+
+<p>Sonic 3 ships with SOC 2 Type II, HIPAA, and PCI Level 1 certifications — prerequisites for healthcare, finance, and legal deployments that other providers are still working toward.</p>
+
+<h2 id="bottom-line">Bottom Line</h2>
+
+<p>Cartesia has become the default comparison point in voice agent stacks. If you’re evaluating TTS providers for a real-time assistant, Sonic 3 is the benchmark to beat on latency and the most capable on emotional range. The instant cloning and enterprise compliance round out a package that’s hard to argue against for new deployments.</p>
+
+<p><a href="https://vokda.iknsae.com/voices?provider=cartesia">Browse Cartesia voices on Vokda →</a></p>]]></content><author><name>Vokda</name><email>hello@vokda.com</email></author><category term="release" /><category term="cartesia" /><summary type="html"><![CDATA[Cartesia has released Sonic 3, the latest version of their flagship text-to-speech model — and it’s the one that other providers are now quietly benchmarking against.]]></summary></entry><entry><title type="html">Deepgram Aura-2: 40+ Named English Voices Built for Domain-Specific Accuracy</title><link href="https://hub.vokda.iknsae.com/news/2026/03/04/deepgram-aura-2-spotlight/" rel="alternate" type="text/html" title="Deepgram Aura-2: 40+ Named English Voices Built for Domain-Specific Accuracy" /><published>2026-03-04T00:00:00+00:00</published><updated>2026-03-04T00:00:00+00:00</updated><id>https://hub.vokda.iknsae.com/news/2026/03/04/deepgram-aura-2-spotlight</id><content type="html" xml:base="https://hub.vokda.iknsae.com/news/2026/03/04/deepgram-aura-2-spotlight/"><![CDATA[<p>Deepgram is best known for speech-to-text, but their TTS offering — <strong>Aura-2</strong> — deserves attention on its own terms. It’s doing something most cloud TTS providers haven’t prioritized: making voices sound competent in specialized domains.</p>
+
+<h2 id="the-voice-catalog">The Voice Catalog</h2>
+
+<p>Aura-2 ships with <strong>40+ English voices</strong>, named after mythological figures: Thalia, Odysseus, Harmonia, Theia, Electra, Arcas, Amalthea, Helena, Hyperion, Apollo, Luna, and more. The naming scheme is a deliberate choice — memorable, distinct, and avoids the generic “Voice 1” problem that plagues catalog browsing.</p>
+
+<p>Localization covers <strong>US, Australian, and Filipino English</strong> accents, with expansion ongoing.</p>
+
+<h2 id="domain-tuned-pronunciation">Domain-Tuned Pronunciation</h2>
+
+<p>The differentiating feature is what Deepgram calls domain-specific terminology accuracy. Standard TTS models are trained on general web text — they’ve seen the word “propranolol” maybe once. Aura-2 is tuned to correctly pronounce medical terminology, financial instruments, and legal language without the hesitations or mispronunciations that make generic TTS models unusable in professional contexts.</p>
+
+<p>The use cases that benefit most:</p>
+<ul>
+  <li><strong>Healthcare:</strong> Patient communication, clinical documentation readback, appointment reminders</li>
+  <li><strong>Finance:</strong> Portfolio updates, market briefings, earnings call summaries</li>
+  <li><strong>Legal:</strong> Document readback, contract summaries, compliance notifications</li>
+</ul>
+
+<h2 id="performance">Performance</h2>
+
+<p>Latency sits at <strong>sub-200ms</strong> — not Cartesia-fast, but well within the threshold for conversational applications. The pricing is <strong>$0.030 per 1,000 characters</strong>, which is competitive with Google and Azure.</p>
+
+<p>On-premises deployment is available for organizations with data residency requirements.</p>
+
+<h2 id="context">Context</h2>
+
+<p>Deepgram’s STT background gives Aura-2 an interesting edge: the team understands how audio will ultimately be consumed because they’ve spent years building systems that process it. That signal-level understanding shows in output quality — Aura-2 consistently scores well in naturalness evaluations for spoken content that ends up being transcribed or analyzed downstream.</p>
+
+<p>If your use case is healthcare, finance, or any domain where mispronounced terminology means credibility loss, Aura-2 is worth a serious evaluation before defaulting to the obvious choices.</p>
+
+<p><a href="https://vokda.iknsae.com/voices?provider=deepgram">Browse Deepgram voices on Vokda →</a></p>]]></content><author><name>Vokda</name><email>hello@vokda.com</email></author><category term="spotlight" /><category term="deepgram" /><summary type="html"><![CDATA[Deepgram is best known for speech-to-text, but their TTS offering — Aura-2 — deserves attention on its own terms. It’s doing something most cloud TTS providers haven’t prioritized: making voices sound competent in specialized domains.]]></summary></entry><entry><title type="html">Sesame CSM-1B: The First TTS Model Built Specifically for Conversation</title><link href="https://hub.vokda.iknsae.com/news/2026/02/28/sesame-csm-conversational-speech/" rel="alternate" type="text/html" title="Sesame CSM-1B: The First TTS Model Built Specifically for Conversation" /><published>2026-02-28T00:00:00+00:00</published><updated>2026-02-28T00:00:00+00:00</updated><id>https://hub.vokda.iknsae.com/news/2026/02/28/sesame-csm-conversational-speech</id><content type="html" xml:base="https://hub.vokda.iknsae.com/news/2026/02/28/sesame-csm-conversational-speech/"><![CDATA[<p>Most text-to-speech models are built for monologue: they’re optimized for narration, announcements, audiobooks — content where one voice speaks continuously and nothing speaks back. Conversations don’t work that way.</p>
+
+<p><strong>Sesame’s CSM-1B</strong> is the first openly available TTS model designed specifically for the conversational case, and the difference in output is immediately noticeable.</p>
+
+<h2 id="what-makes-it-different">What Makes It Different</h2>
+
+<p>The core insight behind CSM is that natural-sounding dialog requires different training objectives than natural-sounding narration. Sesame trained on conversation data specifically, teaching the model:</p>
+
+<ul>
+  <li><strong>Realistic turn-taking patterns</strong> — knowing when to trail off, when to pick up energy, how the end of a phrase signals completion</li>
+  <li><strong>Natural back-channels</strong> — the “mm-hm,” “right,” “got it” acknowledgments that make a voice sound engaged rather than automated</li>
+  <li><strong>Dialog pacing</strong> — speaking rhythm that fits interruption-style exchanges rather than extended monologue</li>
+</ul>
+
+<p>The result sounds right in voice agent applications in a way that even high-quality narration-tuned models don’t. Something about the timing feels responsive rather than robotic.</p>
+
+<h2 id="technical-details">Technical Details</h2>
+
+<ul>
+  <li><strong>Parameters:</strong> 1 billion</li>
+  <li><strong>License:</strong> Apache 2.0 — production use, modification, redistribution, commercial deployment, all unrestricted</li>
+  <li><strong>HuggingFace:</strong> <code class="language-plaintext highlighter-rouge">sesame/csm-1b</code></li>
+  <li><strong>MLX port:</strong> <code class="language-plaintext highlighter-rouge">mlx-community/csm-1b</code> — ready to run locally on Apple Silicon today</li>
+</ul>
+
+<p>The MLX port is worth highlighting: CSM can run on a MacBook or Mac mini at reasonable speed via mlx-audio, making it viable for local development and privacy-sensitive deployments without a cloud API dependency.</p>
+
+<h2 id="who-its-for">Who It’s For</h2>
+
+<p>CSM shines in applications where the TTS voice is one side of a two-way conversation:</p>
+
+<ul>
+  <li>Voice AI assistants (real-time call center, support bots)</li>
+  <li>Interactive educational tools with back-and-forth dialog</li>
+  <li>Game NPCs and interactive narrative</li>
+  <li>Accessibility tools that need to feel responsive, not broadcast-y</li>
+</ul>
+
+<p>For straight narration (audiobooks, articles, podcasts) you’d still reach for Kokoro or Orpheus — they’re optimized for that delivery style. But for anything where your TTS voice is in a dialog, CSM is now the first thing worth trying.</p>
+
+<h2 id="bottom-line">Bottom Line</h2>
+
+<p>Sesame didn’t just release another TTS model — they identified a gap in the existing model landscape (conversational AI specifically) and built directly into it. Apache 2.0 licensing means there’s no friction to building on it, and the MLX port makes local experimentation frictionless on Apple Silicon.</p>
+
+<p><a href="https://vokda.iknsae.com/models">Explore open models on Vokda →</a></p>]]></content><author><name>Vokda</name><email>hello@vokda.com</email></author><category term="open-source" /><category term="release" /><category term="sesame" /><summary type="html"><![CDATA[Most text-to-speech models are built for monologue: they’re optimized for narration, announcements, audiobooks — content where one voice speaks continuously and nothing speaks back. Conversations don’t work that way.]]></summary></entry><entry><title type="html">Orpheus TTS: Canopy Labs Releases 3B Open-Source Model with 8 Distinct Voices</title><link href="https://hub.vokda.iknsae.com/news/2026/02/25/orpheus-tts-canopy-labs/" rel="alternate" type="text/html" title="Orpheus TTS: Canopy Labs Releases 3B Open-Source Model with 8 Distinct Voices" /><published>2026-02-25T00:00:00+00:00</published><updated>2026-02-25T00:00:00+00:00</updated><id>https://hub.vokda.iknsae.com/news/2026/02/25/orpheus-tts-canopy-labs</id><content type="html" xml:base="https://hub.vokda.iknsae.com/news/2026/02/25/orpheus-tts-canopy-labs/"><![CDATA[<p>The open-source TTS landscape just got a serious contender. <strong>Canopy Labs</strong> released <strong>Orpheus</strong>, a 3-billion-parameter model with eight distinct named voices and an Apache 2.0 license — meaning unrestricted commercial use.</p>
+
+<h2 id="the-model">The Model</h2>
+
+<p>Orpheus is the largest openly available TTS model optimized for voice quality rather than size efficiency. At 3B parameters, it sits above micro-models like Kokoro (82M) and squarely in the territory where voice quality starts to genuinely compete with cloud providers like AWS Polly and Azure Speech.</p>
+
+<p>The eight voices cover a range of styles and demographics. Each has distinct tonal characteristics rather than being variations of a base voice — a real casting-session approach to model design.</p>
+
+<p><strong>Quick specs:</strong></p>
+<ul>
+  <li><strong>Parameters:</strong> ~3 billion</li>
+  <li><strong>License:</strong> Apache 2.0</li>
+  <li><strong>Voices:</strong> 8 named character voices</li>
+  <li><strong>Quality tier:</strong> High — competitive with top cloud APIs</li>
+</ul>
+
+<h2 id="why-it-matters">Why It Matters</h2>
+
+<p>Until recently, running a locally-hosted TTS model that could pass for a cloud API output meant either compromising on quality (Kokoro is impressive at 82M but the delta is audible) or running very large models that required significant compute.</p>
+
+<p>Orpheus changes the tradeoff. On Apple Silicon with MLX, it runs fast enough for non-real-time use cases (batch narration, podcast production, content generation). For real-time applications the latency is too high on local hardware, but for async workflows it’s a genuine cloud-API alternative with zero per-character cost and full data sovereignty.</p>
+
+<h2 id="practical-use-cases">Practical Use Cases</h2>
+
+<ul>
+  <li><strong>Indie content creators</strong> who generate significant audio volume and want to stop paying per-character fees</li>
+  <li><strong>Privacy-sensitive applications</strong> where audio content can’t leave local infrastructure</li>
+  <li><strong>Developers</strong> building and testing voice features who want realistic output without a billing meter running</li>
+  <li><strong>Productions and studios</strong> that need consistent character voices they own and control</li>
+</ul>
+
+<h2 id="the-canopy-labs-factor">The Canopy Labs Factor</h2>
+
+<p>Orpheus being from a research lab (Canopy Labs) rather than a VC-backed TTS startup means the Apache 2.0 licensing is structurally genuine — it’s not a “community edition” with enterprise features gated. The model is the model.</p>
+
+<p>This puts Orpheus in the same class of releases as Kokoro and F5-TTS: open-source models that aren’t inferior demonstrations, but production-viable tools.</p>
+
+<p><a href="https://vokda.iknsae.com/models">Explore Orpheus and other open models on Vokda →</a></p>]]></content><author><name>Vokda</name><email>hello@vokda.com</email></author><category term="open-source" /><category term="release" /><category term="canopy-labs" /><summary type="html"><![CDATA[The open-source TTS landscape just got a serious contender. Canopy Labs released Orpheus, a 3-billion-parameter model with eight distinct named voices and an Apache 2.0 license — meaning unrestricted commercial use.]]></summary></entry><entry><title type="html">F5-TTS: Flow-Matching Architecture Delivers Fast, High-Quality Open TTS</title><link href="https://hub.vokda.iknsae.com/news/2026/02/20/f5-tts-flow-matching/" rel="alternate" type="text/html" title="F5-TTS: Flow-Matching Architecture Delivers Fast, High-Quality Open TTS" /><published>2026-02-20T00:00:00+00:00</published><updated>2026-02-20T00:00:00+00:00</updated><id>https://hub.vokda.iknsae.com/news/2026/02/20/f5-tts-flow-matching</id><content type="html" xml:base="https://hub.vokda.iknsae.com/news/2026/02/20/f5-tts-flow-matching/"><![CDATA[<p>The open-source TTS ecosystem is developing a clear stratification: tiny edge models (Kokoro at 82M), large expressive models (Orpheus at 3B), and a middle tier that’s been relatively underpopulated. <strong>F5-TTS</strong> fills that gap with a technically distinct approach.</p>
+
+<h2 id="flow-matching-architecture">Flow-Matching Architecture</h2>
+
+<p>F5-TTS uses <strong>flow-matching</strong> for generation, rather than the autoregressive approach used by most TTS models. Flow-matching is a generative modeling technique borrowed from image generation that learns to transform noise into output in a continuous, reversible process.</p>
+
+<p>In practice this means:</p>
+<ul>
+  <li><strong>Fast inference</strong> — flow-matching can generate audio in fewer steps than diffusion-based models, reducing latency</li>
+  <li><strong>High quality</strong> — the continuous trajectory from noise to output preserves fine-grained acoustic detail</li>
+  <li><strong>Stable training</strong> — flow-matching objectives are more stable than adversarial approaches</li>
+</ul>
+
+<p>The result is a model that generates natural, expressive speech quickly without the compute overhead of 3B+ parameter models.</p>
+
+<h2 id="technical-details">Technical Details</h2>
+
+<ul>
+  <li><strong>License:</strong> MIT — fully permissive, commercial use included</li>
+  <li><strong>HuggingFace:</strong> <code class="language-plaintext highlighter-rouge">SWivid/F5-TTS</code></li>
+  <li><strong>MLX ports:</strong> Available for Apple Silicon local inference</li>
+  <li><strong>Community:</strong> Large and active — trending on HuggingFace for several weeks running</li>
+</ul>
+
+<p>The MIT license is worth emphasizing: it’s one level more permissive than Apache 2.0 (no attribution requirement in derivatives), making it among the most commercially friendly open TTS licenses available.</p>
+
+<h2 id="where-it-sits-in-the-stack">Where It Sits in the Stack</h2>
+
+<p>F5-TTS occupies an interesting position:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Model</th>
+      <th>Size</th>
+      <th>License</th>
+      <th>Speed</th>
+      <th>Quality</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Kokoro 82M</td>
+      <td>82M</td>
+      <td>Apache 2.0</td>
+      <td>Very fast</td>
+      <td>Good</td>
+    </tr>
+    <tr>
+      <td><strong>F5-TTS</strong></td>
+      <td><strong>Medium</strong></td>
+      <td><strong>MIT</strong></td>
+      <td><strong>Fast</strong></td>
+      <td><strong>High</strong></td>
+    </tr>
+    <tr>
+      <td>Orpheus</td>
+      <td>3B</td>
+      <td>Apache 2.0</td>
+      <td>Moderate</td>
+      <td>Very high</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>For developers who find Kokoro’s quality ceiling limiting but Orpheus too slow for their use case, F5-TTS is the obvious middle option.</p>
+
+<h2 id="community-momentum">Community Momentum</h2>
+
+<p>The HuggingFace community around F5-TTS has been active in extending it — fine-tunes for different languages, voice-adapted variants, and integration guides for popular frameworks. Community momentum is often a better predictor of long-term model viability than raw benchmark scores, and F5-TTS has it.</p>
+
+<p><a href="https://vokda.iknsae.com/models">Explore F5-TTS and other open models on Vokda →</a></p>]]></content><author><name>Vokda</name><email>hello@vokda.com</email></author><category term="open-source" /><category term="research" /><category term="f5-tts" /><summary type="html"><![CDATA[The open-source TTS ecosystem is developing a clear stratification: tiny edge models (Kokoro at 82M), large expressive models (Orpheus at 3B), and a middle tier that’s been relatively underpopulated. F5-TTS fills that gap with a technically distinct approach.]]></summary></entry></feed>

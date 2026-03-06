@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sesame CSM-1B: The First TTS Model Built Specifically for Conversation — Vokda Hub</title>
+  <meta name="description" content="Sesame's Conversational Speech Model is a 1B-parameter open-source model designed from the ground up for dialog — realistic turn-taking, natural back-channels, and Apache 2.0 licensing." />
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <link rel="alternate" type="application/atom+xml" title="Vokda Hub" href="/api/feed.xml" />
+  <link rel="canonical" href="https://hub.vokda.iknsae.com/news/2026/02/28/sesame-csm-conversational-speech/" />
+</head>
+<body>
+  <nav class="site-nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <span class="logo-mark">V</span>
+      <span class="logo-text">Vokda <span class="logo-sub">Hub</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/news/" class="active">News</a></li>
+      <li><a href="/guides/" >Guides</a></li>
+      <li><a href="/providers/" >Providers</a></li>
+      <li><a href="/models/" >Models</a></li>
+    </ul>
+    <a href="https://vokda.iknsae.com" class="nav-cta" target="_blank" rel="noopener">Browse Voices →</a>
+  </div>
+</nav>
+
+  <main>
+    <article class="post">
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2026-02-28T00:00:00+00:00">February 28, 2026</time>
+      
+        <span class="divider">·</span>
+        <span class="tags">
+          <span class="tag">open-source</span><span class="tag">release</span><span class="tag">sesame</span>
+        </span>
+      
+    </div>
+    <h1>Sesame CSM-1B: The First TTS Model Built Specifically for Conversation</h1>
+    <p class="post-summary">Sesame's Conversational Speech Model is a 1B-parameter open-source model designed from the ground up for dialog — realistic turn-taking, natural back-channels, and Apache 2.0 licensing.</p>
+  </header>
+
+  <div class="post-body">
+    <p>Most text-to-speech models are built for monologue: they’re optimized for narration, announcements, audiobooks — content where one voice speaks continuously and nothing speaks back. Conversations don’t work that way.</p>
+
+<p><strong>Sesame’s CSM-1B</strong> is the first openly available TTS model designed specifically for the conversational case, and the difference in output is immediately noticeable.</p>
+
+<h2 id="what-makes-it-different">What Makes It Different</h2>
+
+<p>The core insight behind CSM is that natural-sounding dialog requires different training objectives than natural-sounding narration. Sesame trained on conversation data specifically, teaching the model:</p>
+
+<ul>
+  <li><strong>Realistic turn-taking patterns</strong> — knowing when to trail off, when to pick up energy, how the end of a phrase signals completion</li>
+  <li><strong>Natural back-channels</strong> — the “mm-hm,” “right,” “got it” acknowledgments that make a voice sound engaged rather than automated</li>
+  <li><strong>Dialog pacing</strong> — speaking rhythm that fits interruption-style exchanges rather than extended monologue</li>
+</ul>
+
+<p>The result sounds right in voice agent applications in a way that even high-quality narration-tuned models don’t. Something about the timing feels responsive rather than robotic.</p>
+
+<h2 id="technical-details">Technical Details</h2>
+
+<ul>
+  <li><strong>Parameters:</strong> 1 billion</li>
+  <li><strong>License:</strong> Apache 2.0 — production use, modification, redistribution, commercial deployment, all unrestricted</li>
+  <li><strong>HuggingFace:</strong> <code class="language-plaintext highlighter-rouge">sesame/csm-1b</code></li>
+  <li><strong>MLX port:</strong> <code class="language-plaintext highlighter-rouge">mlx-community/csm-1b</code> — ready to run locally on Apple Silicon today</li>
+</ul>
+
+<p>The MLX port is worth highlighting: CSM can run on a MacBook or Mac mini at reasonable speed via mlx-audio, making it viable for local development and privacy-sensitive deployments without a cloud API dependency.</p>
+
+<h2 id="who-its-for">Who It’s For</h2>
+
+<p>CSM shines in applications where the TTS voice is one side of a two-way conversation:</p>
+
+<ul>
+  <li>Voice AI assistants (real-time call center, support bots)</li>
+  <li>Interactive educational tools with back-and-forth dialog</li>
+  <li>Game NPCs and interactive narrative</li>
+  <li>Accessibility tools that need to feel responsive, not broadcast-y</li>
+</ul>
+
+<p>For straight narration (audiobooks, articles, podcasts) you’d still reach for Kokoro or Orpheus — they’re optimized for that delivery style. But for anything where your TTS voice is in a dialog, CSM is now the first thing worth trying.</p>
+
+<h2 id="bottom-line">Bottom Line</h2>
+
+<p>Sesame didn’t just release another TTS model — they identified a gap in the existing model landscape (conversational AI specifically) and built directly into it. Apache 2.0 licensing means there’s no friction to building on it, and the MLX port makes local experimentation frictionless on Apple Silicon.</p>
+
+<p><a href="https://vokda.iknsae.com/models">Explore open models on Vokda →</a></p>
+
+  </div>
+
+  
+  <div class="post-related">
+    <a href="/providers/sesame" class="related-link">
+      View provider profile →
+    </a>
+    <a href="https://vokda.iknsae.com/voices?provider=sesame" class="related-link external" target="_blank" rel="noopener">
+      Browse voices on Vokda →
+    </a>
+  </div>
+  
+
+  <footer class="post-footer">
+    <a href="/news/" class="back-link">← All news</a>
+  </footer>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="footer-logo">Vokda Hub</a>
+      <p>The central destination for TTS news, model tracking, and voice discovery.</p>
+    </div>
+    <nav class="footer-nav">
+      <ul>
+        <li><a href="/news/">News</a></li>
+        <li><a href="/guides/">Guides</a></li>
+        <li><a href="/providers/">Providers</a></li>
+        <li><a href="/models/">Models</a></li>
+      </ul>
+      <ul>
+        <li><a href="https://vokda.iknsae.com" target="_blank" rel="noopener">Vokda App</a></li>
+        <li><a href="/api/feed.xml">RSS Feed</a></li>
+        <li><a href="/api/news.json">API</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Vokda. Built with Jekyll.</p>
+  </div>
+</footer>
+
+</body>
+</html>

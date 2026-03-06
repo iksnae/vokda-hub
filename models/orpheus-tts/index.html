@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Orpheus TTS — Vokda Hub</title>
+  <meta name="description" content="Canopy Labs' 3-billion-parameter open TTS model with 8 distinct named voices. Highest quality open-source English TTS available — comparable to top cloud providers for narration and content generation." />
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <link rel="alternate" type="application/atom+xml" title="Vokda Hub" href="/api/feed.xml" />
+  <link rel="canonical" href="https://hub.vokda.iknsae.com/models/orpheus-tts/" />
+</head>
+<body>
+  <nav class="site-nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <span class="logo-mark">V</span>
+      <span class="logo-text">Vokda <span class="logo-sub">Hub</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/news/" >News</a></li>
+      <li><a href="/guides/" >Guides</a></li>
+      <li><a href="/providers/" >Providers</a></li>
+      <li><a href="/models/" class="active">Models</a></li>
+    </ul>
+    <a href="https://vokda.iknsae.com" class="nav-cta" target="_blank" rel="noopener">Browse Voices →</a>
+  </div>
+</nav>
+
+  <main>
+    <article class="profile">
+  <header class="profile-header">
+    <span class="label">Open Model</span>
+    <h1>Orpheus TTS</h1>
+    <p class="profile-summary">Canopy Labs' 3-billion-parameter open TTS model with 8 distinct named voices. Highest quality open-source English TTS available — comparable to top cloud providers for narration and content generation.</p>
+
+    <div class="profile-meta">
+      
+      
+      <a href="https://huggingface.co/canopylabs/orpheus-tts-0.1-pretrain-prod" target="_blank" rel="noopener" class="profile-link">HuggingFace →</a>
+    </div>
+
+    <dl class="profile-stats">
+      
+      <div><dt>Pricing</dt><dd>Free (self-hosted)</dd></div>
+      <div><dt>Languages</dt><dd>English</dd></div>
+      <div><dt>Voices</dt><dd>8 named voices</dd></div>
+      <div><dt>License</dt><dd>Apache 2.0</dd></div>
+      <div><dt>Parameters</dt><dd>~3B</dd></div>
+      
+    </dl>
+
+    
+    <div class="profile-tags">
+      <span class="tag">high-quality</span><span class="tag">narration</span><span class="tag">self-hosted</span><span class="tag">expressive</span>
+    </div>
+    
+  </header>
+
+  <div class="profile-body">
+    <p>Orpheus is the highest-quality openly available English TTS model. At 3 billion parameters it requires real compute to run, but the output quality justifies it for applications where audio quality is a product differentiator.</p>
+
+<h2 id="background">Background</h2>
+
+<p>Canopy Labs released Orpheus as a genuine research contribution — Apache 2.0 licensed, no enterprise gating, no “community edition” restrictions. The model is the model.</p>
+
+<p>The design philosophy prioritizes voice character: the 8 named voices have distinct personalities, not just tonal variations. They were designed to feel like a voice cast rather than parameter variations.</p>
+
+<h2 id="technical-details">Technical Details</h2>
+
+<ul>
+  <li><strong>Parameters:</strong> ~3 billion</li>
+  <li><strong>License:</strong> Apache 2.0</li>
+  <li><strong>HuggingFace:</strong> <code class="language-plaintext highlighter-rouge">canopylabs/orpheus-tts-0.1-pretrain-prod</code></li>
+  <li><strong>Language:</strong> English</li>
+  <li><strong>Inference:</strong> Requires GPU for reasonable speed; M-series Mac viable via MLX at reduced throughput</li>
+</ul>
+
+<h2 id="quality-comparison">Quality Comparison</h2>
+
+<p>At its best, Orpheus output is competitive with ElevenLabs standard voices and significantly better than AWS Polly Neural or Google WaveNet. The gap shows most clearly in:</p>
+<ul>
+  <li>Long-form narration (naturalness over multiple paragraphs)</li>
+  <li>Voices with strong character (the model doesn’t flatten into neutrality)</li>
+  <li>Edge cases (unusual words, mixed formatting, unconventional punctuation)</li>
+</ul>
+
+<h2 id="8-named-voices">8 Named Voices</h2>
+
+<p>The voice catalog covers: <code class="language-plaintext highlighter-rouge">tara</code>, <code class="language-plaintext highlighter-rouge">leah</code>, <code class="language-plaintext highlighter-rouge">jess</code>, <code class="language-plaintext highlighter-rouge">leo</code>, <code class="language-plaintext highlighter-rouge">dan</code>, <code class="language-plaintext highlighter-rouge">mia</code>, <code class="language-plaintext highlighter-rouge">zac</code>, <code class="language-plaintext highlighter-rouge">zoe</code>. Each has distinct gender presentation, age impression, and tonal style — sufficient for applications that need multiple distinct characters.</p>
+
+<h2 id="deployment-considerations">Deployment Considerations</h2>
+
+<p><strong>Local (Mac with Apple Silicon):</strong></p>
+<ul>
+  <li>M2/M3 Pro: ~3–5 RTF (3–5 seconds to generate 1 second of audio) — viable for async workloads, not real-time</li>
+  <li>M3 Max/Ultra: faster, more viable for moderate throughput</li>
+</ul>
+
+<p><strong>Cloud GPU:</strong></p>
+<ul>
+  <li>A10G (24GB VRAM): ~0.3 RTF — fast enough for near-real-time at moderate quality settings</li>
+  <li>A100: fastest, production-scale throughput</li>
+</ul>
+
+<h2 id="use-cases">Use Cases</h2>
+
+<p><strong>Best for:</strong></p>
+<ul>
+  <li>Audiobook and long-form narration production</li>
+  <li>Podcast voice generation</li>
+  <li>High-quality content audio at scale (where cloud API cost is prohibitive)</li>
+  <li>Applications that need owned, controlled voices</li>
+  <li>When cloud API data privacy is a concern</li>
+</ul>
+
+<p><a href="https://vokda.iknsae.com/voices?provider=orpheus">Browse Orpheus voices on Vokda →</a></p>
+
+  </div>
+
+  
+
+  <footer class="profile-footer">
+    <a href="/models/" class="back-link">← Back</a>
+  </footer>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="footer-logo">Vokda Hub</a>
+      <p>The central destination for TTS news, model tracking, and voice discovery.</p>
+    </div>
+    <nav class="footer-nav">
+      <ul>
+        <li><a href="/news/">News</a></li>
+        <li><a href="/guides/">Guides</a></li>
+        <li><a href="/providers/">Providers</a></li>
+        <li><a href="/models/">Models</a></li>
+      </ul>
+      <ul>
+        <li><a href="https://vokda.iknsae.com" target="_blank" rel="noopener">Vokda App</a></li>
+        <li><a href="/api/feed.xml">RSS Feed</a></li>
+        <li><a href="/api/news.json">API</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Vokda. Built with Jekyll.</p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cartesia — Vokda Hub</title>
+  <meta name="description" content="The fastest real-time TTS API available. Cartesia Sonic 3 delivers sub-80ms streaming latency with real emotional expression, instant voice cloning, and enterprise compliance (SOC 2, HIPAA, PCI)." />
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <link rel="alternate" type="application/atom+xml" title="Vokda Hub" href="/api/feed.xml" />
+  <link rel="canonical" href="https://hub.vokda.iknsae.com/providers/cartesia/" />
+</head>
+<body>
+  <nav class="site-nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <span class="logo-mark">V</span>
+      <span class="logo-text">Vokda <span class="logo-sub">Hub</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/news/" >News</a></li>
+      <li><a href="/guides/" >Guides</a></li>
+      <li><a href="/providers/" class="active">Providers</a></li>
+      <li><a href="/models/" >Models</a></li>
+    </ul>
+    <a href="https://vokda.iknsae.com" class="nav-cta" target="_blank" rel="noopener">Browse Voices →</a>
+  </div>
+</nav>
+
+  <main>
+    <article class="profile">
+  <header class="profile-header">
+    <span class="label">Provider</span>
+    <h1>Cartesia</h1>
+    <p class="profile-summary">The fastest real-time TTS API available. Cartesia Sonic 3 delivers sub-80ms streaming latency with real emotional expression, instant voice cloning, and enterprise compliance (SOC 2, HIPAA, PCI).</p>
+
+    <div class="profile-meta">
+      <a href="https://cartesia.ai" target="_blank" rel="noopener" class="profile-link">Website →</a>
+      <a href="https://docs.cartesia.ai" target="_blank" rel="noopener" class="profile-link">Docs →</a>
+      
+    </div>
+
+    <dl class="profile-stats">
+      <div><dt>Tier</dt><dd class="tier tier-enterprise">enterprise</dd></div>
+      <div><dt>Pricing</dt><dd>Pay-per-character, free tier available</dd></div>
+      <div><dt>Languages</dt><dd>40+</dd></div>
+      <div><dt>Voices</dt><dd>Named + custom clones</dd></div>
+      
+      
+      <div><dt>Latency</dt><dd>Sub-80ms streaming</dd></div>
+    </dl>
+
+    
+    <div class="profile-tags">
+      <span class="tag">real-time</span><span class="tag">voice-cloning</span><span class="tag">emotion</span><span class="tag">enterprise</span><span class="tag">multilingual</span>
+    </div>
+    
+  </header>
+
+  <div class="profile-body">
+    <p>Cartesia has become the benchmark provider for real-time voice agent applications. If you’re building a conversational AI and evaluating TTS providers, Sonic 3 is the thing everyone else is being compared against.</p>
+
+<h2 id="what-makes-cartesia-different">What Makes Cartesia Different</h2>
+
+<p>The headline advantage is <strong>latency</strong>. Sub-80ms time-to-first-audio via WebSocket streaming is fast enough that it’s no longer the bottleneck in a voice agent stack — the LLM inference is. For live conversational UI, this matters enormously.</p>
+
+<p>The second differentiator is <strong>real emotional expression</strong>. Sonic 3’s emotional range — laughter, warmth, urgency, hesitation — is learned, not post-processed via SSML tags. The difference is audible in side-by-side comparisons. Other providers’ “emotional” voices still sound like someone who was told to sound emotional. Sonic 3 sounds like it.</p>
+
+<h2 id="voice-catalog">Voice Catalog</h2>
+
+<p>Cartesia offers a set of named character voices plus two cloning tiers:</p>
+
+<ul>
+  <li><strong>Instant Voice Cloning</strong> — 10 seconds of reference audio, cloned voice available immediately</li>
+  <li><strong>Pro Voice Cloning</strong> — fine-tuned for enterprise deployments, consistent on-brand voice identity</li>
+</ul>
+
+<p>The cloning capability makes Cartesia a natural fit for applications that need custom branded voices without the months-long engagement that custom voice recording used to require.</p>
+
+<h2 id="api">API</h2>
+
+<p>Cartesia offers both REST and WebSocket endpoints:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST https://api.cartesia.ai/tts/bytes          # Non-streaming
+POST https://api.cartesia.ai/tts/sse            # Server-sent events streaming
+WebSocket wss://api.cartesia.ai/tts/ws           # WebSocket streaming
+</code></pre></div></div>
+
+<p>The WebSocket endpoint is the one to use for real-time applications. SSE is a good middle ground for streaming without persistent connections.</p>
+
+<h2 id="compliance">Compliance</h2>
+
+<p>SOC 2 Type II, HIPAA, and PCI Level 1 certifications make Cartesia viable for regulated industries where most other providers aren’t yet certified.</p>
+
+<h2 id="pricing">Pricing</h2>
+
+<p>Free tier available at cartesia.ai. Paid tiers are pay-per-character. No minimum commitment for standard access.</p>
+
+<h2 id="when-to-use-cartesia">When to Use Cartesia</h2>
+
+<ul>
+  <li>Real-time voice agents (phone, live chat, in-app assistant)</li>
+  <li>Anything where emotional range is a product requirement</li>
+  <li>When you need branded voice clones</li>
+  <li>Healthcare, finance, or legal deployments requiring compliance certifications</li>
+</ul>
+
+  </div>
+
+  
+  <div class="post-related">
+    <a href="https://vokda.iknsae.com/voices?provider=cartesia" class="related-link external" target="_blank" rel="noopener">
+      Browse voices on Vokda →
+    </a>
+  </div>
+  
+
+  <footer class="profile-footer">
+    <a href="/providers/" class="back-link">← Back</a>
+  </footer>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="footer-logo">Vokda Hub</a>
+      <p>The central destination for TTS news, model tracking, and voice discovery.</p>
+    </div>
+    <nav class="footer-nav">
+      <ul>
+        <li><a href="/news/">News</a></li>
+        <li><a href="/guides/">Guides</a></li>
+        <li><a href="/providers/">Providers</a></li>
+        <li><a href="/models/">Models</a></li>
+      </ul>
+      <ul>
+        <li><a href="https://vokda.iknsae.com" target="_blank" rel="noopener">Vokda App</a></li>
+        <li><a href="/api/feed.xml">RSS Feed</a></li>
+        <li><a href="/api/news.json">API</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Vokda. Built with Jekyll.</p>
+  </div>
+</footer>
+
+</body>
+</html>
