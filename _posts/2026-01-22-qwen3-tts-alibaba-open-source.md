@@ -68,4 +68,4 @@ Qwen3-TTS lands hardest for:
 
 The voice design capability alone makes it worth evaluating for any project where "pick from a list of 6 pre-made voices" isn't good enough.
 
-[Explore open models on Vokda →](https://vokda.iknsae.com/models)
+[Explore open models on Vokda →](https://vokda.iknsae.com)

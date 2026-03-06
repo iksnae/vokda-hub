@@ -3,6 +3,9 @@ description: The central destination for TTS news, model tracking, guides, and p
 url: https://hub.vokda.iknsae.com
 baseurl: ""
 
+# GitHub Pages fallback (used when custom domain not yet active)
+github_pages_url: https://iksnae.github.io/vokda-hub
+
 author:
   name: Vokda
   email: hello@vokda.com

@@ -58,4 +58,4 @@ The voice catalog covers: `tara`, `leah`, `jess`, `leo`, `dan`, `mia`, `zac`, `z
 - Applications that need owned, controlled voices
 - When cloud API data privacy is a concern
 
-[Browse Orpheus voices on Vokda →](https://vokda.iknsae.com/voices?provider=orpheus)
+[Browse Orpheus voices on Vokda →](https://vokda.iknsae.com)

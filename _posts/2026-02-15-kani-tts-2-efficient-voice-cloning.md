@@ -63,4 +63,4 @@ For developers who need voice cloning on consumer hardware, Kani-TTS-2 is the mo
 
 HuggingFace: `nineninesix/kani-tts-2-en` | `nineninesix/kani-tts-2-pt`
 
-[Explore open models on Vokda →](https://vokda.iknsae.com/models)
+[Explore open models on Vokda →](https://vokda.iknsae.com)

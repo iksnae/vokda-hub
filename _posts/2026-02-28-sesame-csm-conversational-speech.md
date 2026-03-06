@@ -45,4 +45,4 @@ For straight narration (audiobooks, articles, podcasts) you'd still reach for Ko
 
 Sesame didn't just release another TTS model — they identified a gap in the existing model landscape (conversational AI specifically) and built directly into it. Apache 2.0 licensing means there's no friction to building on it, and the MLX port makes local experimentation frictionless on Apple Silicon.
 
-[Explore open models on Vokda →](https://vokda.iknsae.com/models)
+[Explore open models on Vokda →](https://vokda.iknsae.com)

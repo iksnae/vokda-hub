@@ -62,4 +62,4 @@ If you're generating audio for creative content — trailers, audiobooks, explai
 
 For voice agents and real-time applications, hold off until the conversational v3 variant ships.
 
-[Explore ElevenLabs voices on Vokda →](https://vokda.iknsae.com/voices?provider=elevenlabs)
+[Explore ElevenLabs voices on Vokda →](https://vokda.iknsae.com)

@@ -41,4 +41,4 @@ Sonic 3 ships with SOC 2 Type II, HIPAA, and PCI Level 1 certifications — prer
 
 Cartesia has become the default comparison point in voice agent stacks. If you're evaluating TTS providers for a real-time assistant, Sonic 3 is the benchmark to beat on latency and the most capable on emotional range. The instant cloning and enterprise compliance round out a package that's hard to argue against for new deployments.
 
-[Browse Cartesia voices on Vokda →](https://vokda.iknsae.com/voices?provider=cartesia)
+[Browse Cartesia voices on Vokda →](https://vokda.iknsae.com)

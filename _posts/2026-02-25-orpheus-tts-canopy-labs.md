@@ -39,4 +39,4 @@ Orpheus being from a research lab (Canopy Labs) rather than a VC-backed TTS star
 
 This puts Orpheus in the same class of releases as Kokoro and F5-TTS: open-source models that aren't inferior demonstrations, but production-viable tools.
 
-[Explore Orpheus and other open models on Vokda →](https://vokda.iknsae.com/models)
+[Explore Orpheus and other open models on Vokda →](https://vokda.iknsae.com)

@@ -36,4 +36,4 @@ Deepgram's STT background gives Aura-2 an interesting edge: the team understands
 
 If your use case is healthcare, finance, or any domain where mispronounced terminology means credibility loss, Aura-2 is worth a serious evaluation before defaulting to the obvious choices.
 
-[Browse Deepgram voices on Vokda →](https://vokda.iknsae.com/voices?provider=deepgram)
+[Browse Deepgram voices on Vokda →](https://vokda.iknsae.com)

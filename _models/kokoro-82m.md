@@ -61,4 +61,4 @@ pipeline = KPipeline(lang_code='a')  # 'a' = American English
 audio, _ = pipeline("Your text here", voice='af_heart')
 ```
 
-[Browse Kokoro voices on Vokda →](https://vokda.iknsae.com/voices?provider=kokoro)
+[Browse Kokoro voices on Vokda →](https://vokda.iknsae.com)

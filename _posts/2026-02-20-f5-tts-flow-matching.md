@@ -44,4 +44,4 @@ For developers who find Kokoro's quality ceiling limiting but Orpheus too slow f
 
 The HuggingFace community around F5-TTS has been active in extending it — fine-tunes for different languages, voice-adapted variants, and integration guides for popular frameworks. Community momentum is often a better predictor of long-term model viability than raw benchmark scores, and F5-TTS has it.
 
-[Explore F5-TTS and other open models on Vokda →](https://vokda.iknsae.com/models)
+[Explore F5-TTS and other open models on Vokda →](https://vokda.iknsae.com)

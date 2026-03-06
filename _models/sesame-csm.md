@@ -61,4 +61,4 @@ pip install mlx-audio
 mlx_audio generate --model mlx-community/csm-1b --text "Your text here"
 ```
 
-[Explore open models on Vokda →](https://vokda.iknsae.com/models)
+[Explore open models on Vokda →](https://vokda.iknsae.com)
