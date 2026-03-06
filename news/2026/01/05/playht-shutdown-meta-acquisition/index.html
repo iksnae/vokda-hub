@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Play.ht Is Gone: What Meta's Acquisition Means for TTS Developers — Vokda Hub</title>
+  <meta name="description" content="Play.ht was acquired by Meta in July 2025 and shut down permanently on December 31st. The API went dark first in July, the full platform followed at year-end — forcing thousands of developers to migrate." />
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <link rel="alternate" type="application/atom+xml" title="Vokda Hub" href="/api/feed.xml" />
+  <link rel="canonical" href="https://hub.vokda.iknsae.com/news/2026/01/05/playht-shutdown-meta-acquisition/" />
+</head>
+<body>
+  <nav class="site-nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <span class="logo-mark">V</span>
+      <span class="logo-text">Vokda <span class="logo-sub">Hub</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/news/" class="active">News</a></li>
+      <li><a href="/guides/" >Guides</a></li>
+      <li><a href="/providers/" >Providers</a></li>
+      <li><a href="/models/" >Models</a></li>
+    </ul>
+    <a href="https://vokda.iknsae.com" class="nav-cta" target="_blank" rel="noopener">Browse Voices →</a>
+  </div>
+</nav>
+
+  <main>
+    <article class="post">
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2026-01-05T00:00:00+00:00">January 5, 2026</time>
+      
+        <span class="divider">·</span>
+        <span class="tags">
+          <span class="tag">industry</span><span class="tag">meta</span><span class="tag">acquisition</span><span class="tag">migration</span>
+        </span>
+      
+    </div>
+    <h1>Play.ht Is Gone: What Meta's Acquisition Means for TTS Developers</h1>
+    <p class="post-summary">Play.ht was acquired by Meta in July 2025 and shut down permanently on December 31st. The API went dark first in July, the full platform followed at year-end — forcing thousands of developers to migrate.</p>
+  </header>
+
+  <div class="post-body">
+    <p>Play.ht is gone. If you built on it, you already know. If you’re evaluating TTS providers and still see it listed in comparison articles from last year, here’s the status: <strong>API shut down July 26, 2025. Full platform retired December 31, 2025.</strong></p>
+
+<p>This is worth writing about not just as a migration advisory, but as an industry moment — a cautionary example of what happens when a key piece of developer infrastructure gets acquired by a platform company with different priorities.</p>
+
+<h2 id="what-happened">What Happened</h2>
+
+<p>Meta acquired Play.ht in July 2025. The motivation is clear in hindsight: Play.ht had built PlayAI, a voice AI technology that Meta wanted for internal products (likely Meta AI voice features on WhatsApp, Instagram, Ray-Ban glasses, and future hardware). The team and technology moved into Meta’s AI infrastructure.</p>
+
+<p>The timeline:</p>
+<ul>
+  <li><strong>July 2025</strong> — Acquisition announced. API shutdown date set for July 26th.</li>
+  <li><strong>July 26, 2025</strong> — API access terminated. Developers had days to weeks of notice depending on when they read the announcement.</li>
+  <li><strong>December 31, 2025</strong> — Studio, voice agents, saved audio, and all user data purged.</li>
+  <li><strong>January 2026</strong> — All remaining API access locked out. Data export window closed.</li>
+</ul>
+
+<p>Meta’s shutdown was faster than most acquisitions of this type. Developers who had built on Play.ht’s API — which was competitive with ElevenLabs on voice cloning and had good pricing — found themselves scrambling.</p>
+
+<h2 id="why-this-matters">Why This Matters</h2>
+
+<p>Play.ht wasn’t a minor player. It was one of the three or four providers developers seriously evaluated alongside ElevenLabs when choosing a TTS stack. It had:</p>
+
+<ul>
+  <li>A strong voice cloning product (PlayHT 2.0 was well-regarded)</li>
+  <li>Competitive pricing</li>
+  <li>Good latency</li>
+  <li>A large voice catalog</li>
+</ul>
+
+<p>None of that survived the acquisition.</p>
+
+<p>The lesson — one that gets relearned every few years in developer tooling — is that building on single-vendor cloud APIs creates dependency risk that has no technical mitigation. If the API disappears, your product disappears with it.</p>
+
+<h2 id="migration-paths">Migration Paths</h2>
+
+<p>For developers who were on Play.ht and are still landing on alternatives, the landscape in early 2026:</p>
+
+<p><strong>Best overall replacement (voice quality + cloning):</strong> ElevenLabs. The closest feature match — strong voice catalog, professional cloning tiers, well-maintained API.</p>
+
+<p><strong>Best for real-time agents:</strong> Cartesia Sonic 3. Lower latency than Play.ht ever achieved, better emotional range.</p>
+
+<p><strong>Best for cost-sensitive migration:</strong> Inworld TTS-1.5 at $5–10/1M chars, or open-source (Kokoro, Orpheus, F5-TTS) for async workloads where you can absorb hosting overhead.</p>
+
+<p><strong>Best for multilingual replacement:</strong> Azure AI Speech (140+ languages) or Google Cloud TTS Neural2.</p>
+
+<h2 id="what-the-tts-vendor-landscape-looks-like-now">What the TTS Vendor Landscape Looks Like Now</h2>
+
+<p>The Play.ht shutdown clarifies something about the market structure: the independent TTS API players are ElevenLabs, Cartesia, Deepgram, and Inworld. Everyone else is either a cloud hyperscaler (AWS, Azure, Google) or an open-source model.</p>
+
+<p>That’s actually a healthier landscape than it looks. Hyperscalers aren’t going anywhere. The independent providers are either well-capitalized or generating revenue. Open-source is more viable than ever.</p>
+
+<p>But the Play.ht situation is a reminder: <strong>provider diversification isn’t over-engineering — it’s basic resilience.</strong> Abstracting your TTS calls behind a thin adapter layer costs a few hours and can save a migration crisis.</p>
+
+<hr />
+
+<p><em>If you’re migrating from Play.ht, Vokda’s voice catalog covers all the major alternatives with audio samples for direct comparison: <a href="https://vokda.iknsae.com">vokda.iknsae.com</a></em></p>
+
+  </div>
+
+  
+
+  <footer class="post-footer">
+    <a href="/news/" class="back-link">← All news</a>
+  </footer>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="footer-logo">Vokda Hub</a>
+      <p>The central destination for TTS news, model tracking, and voice discovery.</p>
+    </div>
+    <nav class="footer-nav">
+      <ul>
+        <li><a href="/news/">News</a></li>
+        <li><a href="/guides/">Guides</a></li>
+        <li><a href="/providers/">Providers</a></li>
+        <li><a href="/models/">Models</a></li>
+      </ul>
+      <ul>
+        <li><a href="https://vokda.iknsae.com" target="_blank" rel="noopener">Vokda App</a></li>
+        <li><a href="/api/feed.xml">RSS Feed</a></li>
+        <li><a href="/api/news.json">API</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Vokda. Built with Jekyll.</p>
+  </div>
+</footer>
+
+</body>
+</html>

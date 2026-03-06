@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ElevenLabs Eleven v3 Is Now Generally Available — Vokda Hub</title>
+  <meta name="description" content="Eleven v3 exits alpha and goes GA — bringing audio tags, multi-speaker dialogue, and 70+ language support. The most expressive TTS model ElevenLabs has shipped." />
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <link rel="alternate" type="application/atom+xml" title="Vokda Hub" href="/api/feed.xml" />
+  <link rel="canonical" href="https://hub.vokda.iknsae.com/news/2026/02/02/elevenlabs-eleven-v3-generally-available/" />
+</head>
+<body>
+  <nav class="site-nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <span class="logo-mark">V</span>
+      <span class="logo-text">Vokda <span class="logo-sub">Hub</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/news/" class="active">News</a></li>
+      <li><a href="/guides/" >Guides</a></li>
+      <li><a href="/providers/" >Providers</a></li>
+      <li><a href="/models/" >Models</a></li>
+    </ul>
+    <a href="https://vokda.iknsae.com" class="nav-cta" target="_blank" rel="noopener">Browse Voices →</a>
+  </div>
+</nav>
+
+  <main>
+    <article class="post">
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2026-02-02T00:00:00+00:00">February 2, 2026</time>
+      
+        <span class="divider">·</span>
+        <span class="tags">
+          <span class="tag">release</span><span class="tag">elevenlabs</span>
+        </span>
+      
+    </div>
+    <h1>ElevenLabs Eleven v3 Is Now Generally Available</h1>
+    <p class="post-summary">Eleven v3 exits alpha and goes GA — bringing audio tags, multi-speaker dialogue, and 70+ language support. The most expressive TTS model ElevenLabs has shipped.</p>
+  </header>
+
+  <div class="post-body">
+    <p>After several months in alpha, ElevenLabs shipped Eleven v3 as generally available on February 2nd. It’s a meaningful generational step from Multilingual v2 — not just incremental quality improvements, but a fundamentally different approach to how you direct voice output.</p>
+
+<h2 id="whats-new">What’s New</h2>
+
+<p><strong>Audio tags</strong> are the headline feature. Instead of relying entirely on the model to interpret emotional tone from text, v3 lets you annotate inline:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[excited] We just closed the deal — [whispers] don't tell anyone yet.
+[sighs] I've been waiting for this for months.
+[laughs] You actually said that?
+</code></pre></div></div>
+
+<p>Tags can be applied to any span of text and stack with each other. The model interprets them relative to context — an <code class="language-plaintext highlighter-rouge">[excited]</code> tag on routine text reads differently than the same tag on a punchline. ElevenLabs describes the prompt engineering as more demanding than v2 but says the ceiling is significantly higher.</p>
+
+<p><strong>Multi-speaker dialogue mode</strong> is the other major addition. You can specify multiple voices in a single generation with natural pacing and interruptions between them — which eliminates the need to stitch together multiple API calls and manually line up timing for podcast scripts, audiobooks, or interactive narratives.</p>
+
+<p><strong>70+ languages</strong> — expanded from v2’s 29. Coverage now includes many high-demand markets that were missing or in low-quality tiers before.</p>
+
+<p><strong>68% reduction in errors</strong> on complex text: chemical formulas, phone numbers, addresses, technical jargon. This matters more than it sounds — one garbled email address or wrong phone number in an IVR system undermines the entire deployment.</p>
+
+<h2 id="what-its-best-for">What It’s Best For</h2>
+
+<p>ElevenLabs is direct about the intended use case: v3 is built for <strong>video, audiobooks, and media tools</strong> — non-real-time creative applications where audio quality and expressiveness are the product.</p>
+
+<p>For real-time and conversational agents they explicitly recommend staying with v2.5 Turbo or Flash. A real-time version of v3 is in development, but not yet available.</p>
+
+<h2 id="prompting-v3">Prompting v3</h2>
+
+<p>The audio tag system requires a bit of adjustment if you’re used to just passing clean prose to the API. ElevenLabs’ guidance is to treat v3 more like directing a voice actor — think about pacing, where emphasis should fall, which moments need emotional color.</p>
+
+<p>A few patterns that work well:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Emphasis
+The answer is [emphatically] no.
+
+# Non-verbal reactions  
+[laughs softly] I can't believe that worked.
+
+# Dialogue dynamics
+— [confidently] I think we should ship it.
+— [skeptical pause] And the tests?
+— [hesitates] Most of them pass.
+</code></pre></div></div>
+
+<h2 id="api-access">API Access</h2>
+
+<p>Eleven v3 is available via <code class="language-plaintext highlighter-rouge">eleven_v3</code> in the API and through the ElevenLabs Studio interface. Pricing is higher than v2.5 — consult their pricing page for current rates.</p>
+
+<h2 id="the-bottom-line">The Bottom Line</h2>
+
+<p>If you’re generating audio for creative content — trailers, audiobooks, explainer videos, game dialog — v3 is the version to be on. The audio tag system gives you the kind of fine-grained control that used to require a voice acting session and post-production. Multi-speaker dialogue alone saves significant time for anyone producing scripted content.</p>
+
+<p>For voice agents and real-time applications, hold off until the conversational v3 variant ships.</p>
+
+<p><a href="https://vokda.iknsae.com/voices?provider=elevenlabs">Explore ElevenLabs voices on Vokda →</a></p>
+
+  </div>
+
+  
+  <div class="post-related">
+    <a href="/providers/elevenlabs" class="related-link">
+      View provider profile →
+    </a>
+    <a href="https://vokda.iknsae.com/voices?provider=elevenlabs" class="related-link external" target="_blank" rel="noopener">
+      Browse voices on Vokda →
+    </a>
+  </div>
+  
+
+  <footer class="post-footer">
+    <a href="/news/" class="back-link">← All news</a>
+  </footer>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="footer-logo">Vokda Hub</a>
+      <p>The central destination for TTS news, model tracking, and voice discovery.</p>
+    </div>
+    <nav class="footer-nav">
+      <ul>
+        <li><a href="/news/">News</a></li>
+        <li><a href="/guides/">Guides</a></li>
+        <li><a href="/providers/">Providers</a></li>
+        <li><a href="/models/">Models</a></li>
+      </ul>
+      <ul>
+        <li><a href="https://vokda.iknsae.com" target="_blank" rel="noopener">Vokda App</a></li>
+        <li><a href="/api/feed.xml">RSS Feed</a></li>
+        <li><a href="/api/news.json">API</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Vokda. Built with Jekyll.</p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kani-TTS-2: 400M Parameters, 3GB VRAM, Voice Cloning — Trained in 6 Hours — Vokda Hub</title>
+  <meta name="description" content="nineninesix.ai releases Kani-TTS-2 — a 400M parameter model using LiquidAI's LFM2 architecture and NVIDIA NanoCodec. Zero-shot voice cloning on 3GB VRAM, with a Real-Time Factor of 0.2. Apache 2.0." />
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <link rel="alternate" type="application/atom+xml" title="Vokda Hub" href="/api/feed.xml" />
+  <link rel="canonical" href="https://hub.vokda.iknsae.com/news/2026/02/15/kani-tts-2-efficient-voice-cloning/" />
+</head>
+<body>
+  <nav class="site-nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <span class="logo-mark">V</span>
+      <span class="logo-text">Vokda <span class="logo-sub">Hub</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/news/" class="active">News</a></li>
+      <li><a href="/guides/" >Guides</a></li>
+      <li><a href="/providers/" >Providers</a></li>
+      <li><a href="/models/" >Models</a></li>
+    </ul>
+    <a href="https://vokda.iknsae.com" class="nav-cta" target="_blank" rel="noopener">Browse Voices →</a>
+  </div>
+</nav>
+
+  <main>
+    <article class="post">
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2026-02-15T00:00:00+00:00">February 15, 2026</time>
+      
+        <span class="divider">·</span>
+        <span class="tags">
+          <span class="tag">release</span><span class="tag">open-source</span><span class="tag">kani</span><span class="tag">efficiency</span>
+        </span>
+      
+    </div>
+    <h1>Kani-TTS-2: 400M Parameters, 3GB VRAM, Voice Cloning — Trained in 6 Hours</h1>
+    <p class="post-summary">nineninesix.ai releases Kani-TTS-2 — a 400M parameter model using LiquidAI's LFM2 architecture and NVIDIA NanoCodec. Zero-shot voice cloning on 3GB VRAM, with a Real-Time Factor of 0.2. Apache 2.0.</p>
+  </header>
+
+  <div class="post-body">
+    <p>Kani-TTS-2 is a new open-source TTS model from nineninesix.ai that makes an interesting argument about where the efficiency ceiling is in 2026: 400 million parameters, 3GB VRAM, zero-shot voice cloning, real-time capable — and trained on 10,000 hours of speech data in six hours.</p>
+
+<p>That training time is the thing worth pausing on.</p>
+
+<h2 id="the-architecture-lfm2--nanocodec">The Architecture: LFM2 + NanoCodec</h2>
+
+<p>Kani-TTS-2 is built on two components that aren’t the usual open-source TTS stack:</p>
+
+<p><strong>LFM2 (LiquidAI Liquid Foundation Model 2)</strong> — a 350M parameter language backbone from LiquidAI designed for efficiency. LFMs use a different architecture from standard transformers — specifically designed to run fast on constrained hardware without sacrificing output quality. The Kani team uses LFM2 as the “audio intent” predictor: it generates sequences of audio tokens that represent what should be said.</p>
+
+<p><strong>NVIDIA NanoCodec</strong> — converts those audio tokens into 22kHz waveforms. NanoCodec is a neural audio codec specifically built for efficiency — it achieves high-fidelity reconstruction at low bitrates, which keeps memory requirements down.</p>
+
+<p>The combination: <strong>Audio-as-Language</strong>. The model never works with mel-spectrograms or raw waveforms during inference — everything is discrete tokens until the final NanoCodec decode step. This is what enables the 3GB VRAM footprint.</p>
+
+<h2 id="training-efficiency">Training Efficiency</h2>
+
+<p>The numbers are striking. The English model was trained on 10,000 hours of high-quality speech data using 8 NVIDIA H100 GPUs — total training time: <strong>6 hours</strong>.</p>
+
+<p>To put that in context: training a comparable-scale TTS model on traditional architectures with similar data would typically take days to a week on the same hardware. The LFM2 architecture’s training efficiency is a meaningful part of the story here — it suggests that the model family can be extended, fine-tuned, and adapted to new languages or domains cheaply.</p>
+
+<h2 id="zero-shot-voice-cloning">Zero-Shot Voice Cloning</h2>
+
+<p>Voice cloning works via <strong>speaker embeddings</strong> — no fine-tuning required. The workflow:</p>
+
+<ol>
+  <li>Provide a short reference audio clip (a few seconds)</li>
+  <li>The model extracts speaker characteristics as an embedding</li>
+  <li>Inference uses that embedding to condition all output</li>
+</ol>
+
+<p>This is standard zero-shot cloning architecture, but Kani-TTS-2 runs it at 400M parameters and 3GB VRAM — which means it fits on consumer GPUs like the RTX 3060 or 4050. Previously this quality of zero-shot cloning required hardware that most developers don’t have locally.</p>
+
+<h2 id="performance">Performance</h2>
+
+<ul>
+  <li><strong>Real-Time Factor: 0.2</strong> — generates 10 seconds of audio in ~2 seconds. Faster than real-time, but not fast enough for sub-200ms conversational use without optimization.</li>
+  <li><strong>VRAM:</strong> 3GB — runs on consumer GPUs, not just research clusters</li>
+  <li><strong>Sampling rate:</strong> 22kHz</li>
+  <li><strong>License:</strong> Apache 2.0</li>
+</ul>
+
+<h2 id="languages">Languages</h2>
+
+<p>Currently available in <strong>English</strong> (<code class="language-plaintext highlighter-rouge">nineninesix/kani-tts-2-en</code>) and <strong>Portuguese</strong> (<code class="language-plaintext highlighter-rouge">nineninesix/kani-tts-2-pt</code>). The team describes language expansion as ongoing — the pretraining framework is released publicly, which means community-contributed language fine-tunes are likely.</p>
+
+<h2 id="the-open-pretraining-framework">The Open Pretraining Framework</h2>
+
+<p>Beyond the model weights, nineninesix.ai released the complete pretraining code. This is the part that matters most for researchers and teams building specialized applications:</p>
+
+<ul>
+  <li>Train a new language variant from scratch using the same architecture</li>
+  <li>Fine-tune for a specific accent, domain, or speaker style</li>
+  <li>Adapt the codec to different audio characteristics</li>
+</ul>
+
+<p>This positions Kani-TTS-2 less as a finished product and more as a platform for building custom TTS — which is genuinely different from most open releases that ship weights only.</p>
+
+<h2 id="bottom-line">Bottom Line</h2>
+
+<p>For developers who need voice cloning on consumer hardware, Kani-TTS-2 is the most accessible option currently available. The LFM2 architecture is worth watching — if training efficiency compounds across larger model sizes, the team at nineninesix.ai may have more to release.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>HuggingFace: <code class="language-plaintext highlighter-rouge">nineninesix/kani-tts-2-en</code></td>
+      <td><code class="language-plaintext highlighter-rouge">nineninesix/kani-tts-2-pt</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><a href="https://vokda.iknsae.com/models">Explore open models on Vokda →</a></p>
+
+  </div>
+
+  
+
+  <footer class="post-footer">
+    <a href="/news/" class="back-link">← All news</a>
+  </footer>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="footer-logo">Vokda Hub</a>
+      <p>The central destination for TTS news, model tracking, and voice discovery.</p>
+    </div>
+    <nav class="footer-nav">
+      <ul>
+        <li><a href="/news/">News</a></li>
+        <li><a href="/guides/">Guides</a></li>
+        <li><a href="/providers/">Providers</a></li>
+        <li><a href="/models/">Models</a></li>
+      </ul>
+      <ul>
+        <li><a href="https://vokda.iknsae.com" target="_blank" rel="noopener">Vokda App</a></li>
+        <li><a href="/api/feed.xml">RSS Feed</a></li>
+        <li><a href="/api/news.json">API</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Vokda. Built with Jekyll.</p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,6 +1,6 @@
 {
-  "generated": "2026-03-06T17:14:10+00:00",
-  "count": 5,
+  "generated": "2026-03-06T18:50:14+00:00",
+  "count": 10,
   "items": [
     {
       "title": "Cartesia Releases Sonic 3: Sub-80ms Latency, Real Laughter, and 40+ Languages",
@@ -45,6 +45,51 @@
       "url": "https://hub.vokda.iknsae.com/news/2026/02/20/f5-tts-flow-matching/",
       "summary": "F5-TTS uses a flow-matching architecture to achieve fast inference and high output quality under an MIT license — filling the gap between tiny edge models and large 3B+ heavyweights.",
       "tags": ["open-source","research","f5-tts"],
+      "providerId": null
+    },
+    {
+      "title": "Kani-TTS-2: 400M Parameters, 3GB VRAM, Voice Cloning — Trained in 6 Hours",
+      "date": "2026-02-15",
+      "slug": "kani-tts-2-efficient-voice-cloning",
+      "url": "https://hub.vokda.iknsae.com/news/2026/02/15/kani-tts-2-efficient-voice-cloning/",
+      "summary": "nineninesix.ai releases Kani-TTS-2 — a 400M parameter model using LiquidAI's LFM2 architecture and NVIDIA NanoCodec. Zero-shot voice cloning on 3GB VRAM, with a Real-Time Factor of 0.2. Apache 2.0.",
+      "tags": ["release","open-source","kani","efficiency"],
+      "providerId": null
+    },
+    {
+      "title": "ElevenLabs Eleven v3 Is Now Generally Available",
+      "date": "2026-02-02",
+      "slug": "elevenlabs-eleven-v3-generally-available",
+      "url": "https://hub.vokda.iknsae.com/news/2026/02/02/elevenlabs-eleven-v3-generally-available/",
+      "summary": "Eleven v3 exits alpha and goes GA — bringing audio tags, multi-speaker dialogue, and 70+ language support. The most expressive TTS model ElevenLabs has shipped.",
+      "tags": ["release","elevenlabs"],
+      "providerId": "elevenlabs"
+    },
+    {
+      "title": "Qwen3-TTS: Alibaba Releases Open-Source TTS Trained on 5 Million Hours",
+      "date": "2026-01-22",
+      "slug": "qwen3-tts-alibaba-open-source",
+      "url": "https://hub.vokda.iknsae.com/news/2026/01/22/qwen3-tts-alibaba-open-source/",
+      "summary": "Alibaba Cloud's Qwen team releases Qwen3-TTS — two model sizes (0.6B and 1.7B), 10 languages, voice cloning, free-form voice design via natural language, and streaming support. Apache 2.0.",
+      "tags": ["release","open-source","alibaba","multilingual"],
+      "providerId": null
+    },
+    {
+      "title": "Inworld TTS-1.5 Claims Top Quality Benchmark at $10/1M Chars — 25x Cheaper Than Alternatives",
+      "date": "2026-01-21",
+      "slug": "inworld-tts-1-5-pricing-disruption",
+      "url": "https://hub.vokda.iknsae.com/news/2026/01/21/inworld-tts-1-5-pricing-disruption/",
+      "summary": "Inworld AI enters the TTS market with TTS-1.5 — claiming ELO 1,160 benchmark performance (highest rated) at $5–10 per million characters. If the numbers hold, it's the most significant pricing disruption the TTS market has seen.",
+      "tags": ["release","inworld","pricing"],
+      "providerId": "inworld"
+    },
+    {
+      "title": "Play.ht Is Gone: What Meta's Acquisition Means for TTS Developers",
+      "date": "2026-01-05",
+      "slug": "playht-shutdown-meta-acquisition",
+      "url": "https://hub.vokda.iknsae.com/news/2026/01/05/playht-shutdown-meta-acquisition/",
+      "summary": "Play.ht was acquired by Meta in July 2025 and shut down permanently on December 31st. The API went dark first in July, the full platform followed at year-end — forcing thousands of developers to migrate.",
+      "tags": ["industry","meta","acquisition","migration"],
       "providerId": null
     }
   ]

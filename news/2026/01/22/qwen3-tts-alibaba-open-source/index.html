@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Qwen3-TTS: Alibaba Releases Open-Source TTS Trained on 5 Million Hours — Vokda Hub</title>
+  <meta name="description" content="Alibaba Cloud's Qwen team releases Qwen3-TTS — two model sizes (0.6B and 1.7B), 10 languages, voice cloning, free-form voice design via natural language, and streaming support. Apache 2.0." />
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <link rel="alternate" type="application/atom+xml" title="Vokda Hub" href="/api/feed.xml" />
+  <link rel="canonical" href="https://hub.vokda.iknsae.com/news/2026/01/22/qwen3-tts-alibaba-open-source/" />
+</head>
+<body>
+  <nav class="site-nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <span class="logo-mark">V</span>
+      <span class="logo-text">Vokda <span class="logo-sub">Hub</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/news/" class="active">News</a></li>
+      <li><a href="/guides/" >Guides</a></li>
+      <li><a href="/providers/" >Providers</a></li>
+      <li><a href="/models/" >Models</a></li>
+    </ul>
+    <a href="https://vokda.iknsae.com" class="nav-cta" target="_blank" rel="noopener">Browse Voices →</a>
+  </div>
+</nav>
+
+  <main>
+    <article class="post">
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2026-01-22T00:00:00+00:00">January 22, 2026</time>
+      
+        <span class="divider">·</span>
+        <span class="tags">
+          <span class="tag">release</span><span class="tag">open-source</span><span class="tag">alibaba</span><span class="tag">multilingual</span>
+        </span>
+      
+    </div>
+    <h1>Qwen3-TTS: Alibaba Releases Open-Source TTS Trained on 5 Million Hours</h1>
+    <p class="post-summary">Alibaba Cloud's Qwen team releases Qwen3-TTS — two model sizes (0.6B and 1.7B), 10 languages, voice cloning, free-form voice design via natural language, and streaming support. Apache 2.0.</p>
+  </header>
+
+  <div class="post-body">
+    <p>Alibaba’s Qwen team released Qwen3-TTS on January 22nd — a series of open-source TTS models with two size variants (0.6B and 1.7B), covering 10 languages with voice cloning, streaming, and a capability that stands out: <strong>voice design via natural language instructions</strong>.</p>
+
+<h2 id="what-qwen3-tts-does-differently">What Qwen3-TTS Does Differently</h2>
+
+<p>Most TTS models give you a set of pre-defined voices to choose from. Qwen3-TTS adds <strong>voice design</strong> — you describe the voice you want in natural language and the model generates it:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Instead of choosing "voice_id: en_us_001"
+# You write:
+</span><span class="n">voice_prompt</span> <span class="o">=</span> <span class="sh">"</span><span class="s">A warm, mid-30s American woman with a slightly husky voice. 
+                Measured pace, sounds like a podcast host.</span><span class="sh">"</span>
+</code></pre></div></div>
+
+<p>The model interprets that description and synthesizes a voice matching those characteristics. Combined with traditional voice cloning (provide reference audio), this gives developers two paths to custom voice creation: describe it from scratch, or clone from an existing recording.</p>
+
+<p>This is a genuinely novel capability for an open-source model. Cloud providers have offered similar features at enterprise pricing tiers. Getting it in an Apache 2.0 model changes the access equation significantly.</p>
+
+<h2 id="scale-of-training">Scale of Training</h2>
+
+<p>Qwen3-TTS was trained on over <strong>5 million hours of speech data</strong> across its 10 covered languages. For context, most open-source TTS models train on thousands to tens of thousands of hours. Five million hours means the model has heard vastly more linguistic variety, accent diversity, and prosodic patterns — which shows up in the output’s naturalness across languages.</p>
+
+<h2 id="languages">Languages</h2>
+
+<p>10 languages with full feature support: <strong>Chinese, English, Japanese, Korean, German, French, Russian, Portuguese, Spanish, and Italian</strong>, plus multiple dialectal voice profiles within supported languages.</p>
+
+<p>The Chinese and Japanese coverage in particular is stronger than most Western-developed TTS models, which tend to treat East Asian languages as afterthoughts.</p>
+
+<h2 id="architecture">Architecture</h2>
+
+<p>The core innovation is the <strong>Qwen3-TTS-Tokenizer-12Hz</strong> — a custom neural codec running at 12Hz that converts audio to discrete tokens. The architecture:</p>
+
+<ol>
+  <li>Text input → semantic tokens via the language model backbone</li>
+  <li>Semantic tokens → acoustic tokens via the 12Hz tokenizer</li>
+  <li>Acoustic tokens → 24kHz waveform via the decoder</li>
+</ol>
+
+<p>Running at 12Hz means 12 acoustic frames per second, which enables streaming output — you start hearing audio before the full generation is complete.</p>
+
+<h2 id="model-sizes">Model Sizes</h2>
+
+<p><strong>Qwen3-TTS-0.6B</strong> — 600M parameters. Faster inference, smaller memory footprint. Good for edge deployment and lower-latency applications where full model quality isn’t needed.</p>
+
+<p><strong>Qwen3-TTS-1.7B</strong> — 1.7B parameters. Higher quality, better voice cloning fidelity, stronger multilingual output. The recommended choice for production quality.</p>
+
+<p>HuggingFace: <code class="language-plaintext highlighter-rouge">Qwen/Qwen3-TTS-0.6B</code> and <code class="language-plaintext highlighter-rouge">Qwen/Qwen3-TTS-1.7B</code><br />
+Paper: <a href="https://arxiv.org/abs/2601.15621">arxiv.org/abs/2601.15621</a></p>
+
+<h2 id="api-access">API Access</h2>
+
+<p>Beyond self-hosting, Qwen3-TTS is available via Alibaba Cloud’s DashScope API for developers who want model quality without infrastructure overhead. vLLM support is included for high-throughput deployments.</p>
+
+<h2 id="who-its-for">Who It’s For</h2>
+
+<p>Qwen3-TTS lands hardest for:</p>
+
+<ul>
+  <li><strong>Asian language applications</strong> — the Chinese and Japanese quality is meaningfully better than other open-source alternatives</li>
+  <li><strong>Multilingual products</strong> needing consistent voice quality across 10 languages</li>
+  <li><strong>Developers wanting custom voice creation</strong> without enterprise cloud API costs</li>
+  <li><strong>Privacy-sensitive applications</strong> — fully self-hostable with no external API dependency</li>
+  <li><strong>Researchers</strong> — the pretraining framework is available for fine-tuning on custom languages and domains</li>
+</ul>
+
+<p>The voice design capability alone makes it worth evaluating for any project where “pick from a list of 6 pre-made voices” isn’t good enough.</p>
+
+<p><a href="https://vokda.iknsae.com/models">Explore open models on Vokda →</a></p>
+
+  </div>
+
+  
+
+  <footer class="post-footer">
+    <a href="/news/" class="back-link">← All news</a>
+  </footer>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="footer-logo">Vokda Hub</a>
+      <p>The central destination for TTS news, model tracking, and voice discovery.</p>
+    </div>
+    <nav class="footer-nav">
+      <ul>
+        <li><a href="/news/">News</a></li>
+        <li><a href="/guides/">Guides</a></li>
+        <li><a href="/providers/">Providers</a></li>
+        <li><a href="/models/">Models</a></li>
+      </ul>
+      <ul>
+        <li><a href="https://vokda.iknsae.com" target="_blank" rel="noopener">Vokda App</a></li>
+        <li><a href="/api/feed.xml">RSS Feed</a></li>
+        <li><a href="/api/news.json">API</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Vokda. Built with Jekyll.</p>
+  </div>
+</footer>
+
+</body>
+</html>
