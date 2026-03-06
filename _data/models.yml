@@ -84,6 +84,24 @@
     - 13 language support
   best_for: Creative audio, expressive characters, sound effects
 
+- id: kani-tts-2
+  name: Kani-TTS-2
+  author: nineninesix
+  parameters: "400M"
+  license: "Apache 2.0"
+  huggingface: nineninesix/kani-tts-2-en
+  languages: [en, pt]
+  voices: 1
+  inference_speed: "Fast (RTF 0.2)"
+  apple_silicon: false
+  highlights:
+    - Runs in 3GB VRAM (consumer GPU)
+    - Zero-shot voice cloning via speaker embeddings
+    - LFM2 + NanoCodec architecture
+    - Trained on 10K hours in 6 hours
+    - Full pretraining code released
+  best_for: Voice cloning on consumer hardware
+
 - id: chatterbox-turbo
   name: Chatterbox Turbo
   author: resemble-ai

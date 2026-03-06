@@ -97,6 +97,22 @@
     - Custom Neural Voice
   best_for: Global multilingual deployments
 
+- id: inworld
+  name: Inworld TTS-1.5
+  tier: startup
+  type: cloud_provider
+  languages: "Multiple"
+  voices: "Multiple"
+  latency: "Sub-250ms"
+  pricing: "$5/1M chars (Mini), $10/1M chars (Max)"
+  free_tier: false
+  highlights:
+    - Lowest price among quality providers ($5–10/1M chars)
+    - ELO 1,160 benchmark (self-reported #1)
+    - Data sovereignty for enterprise
+    - Mini and Max model tiers
+  best_for: Cost-sensitive high-volume production
+
 - id: google-cloud-tts
   name: Google Cloud TTS
   tier: startup
