@@ -1,0 +1,102 @@
+- id: kokoro-82m
+  name: Kokoro 82M
+  author: hexgrad
+  parameters: "82M"
+  license: "Apache 2.0"
+  huggingface: hexgrad/Kokoro-82M
+  languages: [en-us, en-gb, fr, ko, ja, zh, es, hi, it, pt-br]
+  voices: 10
+  inference_speed: "Very fast (CPU-viable)"
+  apple_silicon: true
+  highlights:
+    - Most efficient open TTS model
+    - CPU-viable inference
+    - 9 language support
+    - Edge/IoT deployable
+  best_for: Edge deployment, high-volume batch, privacy-sensitive
+
+- id: orpheus-tts
+  name: Orpheus TTS
+  author: canopylabs
+  parameters: "~3B"
+  license: "Apache 2.0"
+  huggingface: canopylabs/orpheus-tts-0.1-pretrain-prod
+  languages: [en]
+  voices: 8
+  inference_speed: "Moderate (GPU recommended)"
+  apple_silicon: true
+  highlights:
+    - Highest quality open English TTS
+    - 8 named distinct voices
+    - Competitive with top cloud providers
+    - Full commercial rights
+  best_for: Audiobook narration, high-quality content, long-form audio
+
+- id: sesame-csm
+  name: Sesame CSM-1B
+  author: sesame
+  parameters: "1B"
+  license: "Apache 2.0"
+  huggingface: sesame/csm-1b
+  huggingface_mlx: mlx-community/csm-1b
+  languages: [en]
+  voices: 1
+  inference_speed: "Moderate (MLX port available)"
+  apple_silicon: true
+  highlights:
+    - Built specifically for conversation
+    - Natural turn-taking and dialog pacing
+    - Back-channel support
+    - MLX port for Apple Silicon
+  best_for: Voice agents, conversational AI, dialog applications
+
+- id: f5-tts
+  name: F5-TTS
+  author: SWivid
+  parameters: "Medium"
+  license: "MIT"
+  huggingface: SWivid/F5-TTS
+  languages: [en, zh]
+  voices: 1
+  inference_speed: "Fast (flow-matching)"
+  apple_silicon: true
+  highlights:
+    - Flow-matching architecture (fast inference)
+    - MIT license (most permissive)
+    - High community momentum
+    - Fills mid-tier quality gap
+  best_for: Balance of speed and quality, MIT-licensed projects
+
+- id: bark
+  name: Bark
+  author: suno-ai
+  parameters: "~900M"
+  license: "MIT"
+  huggingface: suno/bark
+  languages: [en, de, es, fr, hi, it, ja, ko, pl, pt, ru, tr, zh]
+  voices: 13
+  inference_speed: "Slow"
+  apple_silicon: false
+  highlights:
+    - Highly expressive and creative
+    - Non-verbal sounds (laughter, sighs)
+    - Music generation capable
+    - 13 language support
+  best_for: Creative audio, expressive characters, sound effects
+
+- id: chatterbox-turbo
+  name: Chatterbox Turbo
+  author: resemble-ai
+  parameters: "Unknown"
+  license: "MIT"
+  huggingface: resemble-ai/chatterbox
+  languages: [en]
+  voices: 1
+  inference_speed: "Very fast (sub-200ms)"
+  apple_silicon: true
+  highlights:
+    - Sub-200ms latency
+    - MIT license
+    - Real-time capable open-source
+    - From Resemble AI
+  best_for: Real-time open-source TTS

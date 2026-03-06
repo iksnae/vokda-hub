@@ -1,0 +1,18 @@
+---
+---
+{
+  "generated": "{{ site.time | date_to_xmlschema }}",
+  "items": [{% for model in site.models %}
+    {
+      "id": {{ model.title | slugify | jsonify }},
+      "title": {{ model.title | jsonify }},
+      "type": "open_model",
+      "url": {{ model.url | prepend: site.url | jsonify }},
+      "summary": {{ model.summary | default: "" | jsonify }},
+      "license": {{ model.license | default: "" | jsonify }},
+      "parameters": {{ model.parameters | default: null | jsonify }},
+      "languages": {{ model.languages | jsonify }},
+      "tags": {{ model.tags | jsonify }}
+    }{% unless forloop.last %},{% endunless %}{% endfor %}
+  ]
+}

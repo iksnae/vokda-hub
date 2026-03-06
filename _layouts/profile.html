@@ -1,0 +1,48 @@
+---
+layout: default
+---
+<article class="profile">
+  <header class="profile-header">
+    <span class="label">{% if page.type == 'open_model' %}Open Model{% else %}Provider{% endif %}</span>
+    <h1>{{ page.title }}</h1>
+    {% if page.summary %}<p class="profile-summary">{{ page.summary }}</p>{% endif %}
+
+    <div class="profile-meta">
+      {% if page.website %}<a href="{{ page.website }}" target="_blank" rel="noopener" class="profile-link">Website →</a>{% endif %}
+      {% if page.docs %}<a href="{{ page.docs }}" target="_blank" rel="noopener" class="profile-link">Docs →</a>{% endif %}
+      {% if page.huggingface %}<a href="{{ page.huggingface }}" target="_blank" rel="noopener" class="profile-link">HuggingFace →</a>{% endif %}
+    </div>
+
+    <dl class="profile-stats">
+      {% if page.tier %}<div><dt>Tier</dt><dd class="tier tier-{{ page.tier }}">{{ page.tier }}</dd></div>{% endif %}
+      {% if page.pricing %}<div><dt>Pricing</dt><dd>{{ page.pricing }}</dd></div>{% endif %}
+      {% if page.languages %}<div><dt>Languages</dt><dd>{{ page.languages }}</dd></div>{% endif %}
+      {% if page.voices %}<div><dt>Voices</dt><dd>{{ page.voices }}</dd></div>{% endif %}
+      {% if page.license %}<div><dt>License</dt><dd>{{ page.license }}</dd></div>{% endif %}
+      {% if page.parameters %}<div><dt>Parameters</dt><dd>{{ page.parameters }}</dd></div>{% endif %}
+      {% if page.latency %}<div><dt>Latency</dt><dd>{{ page.latency }}</dd></div>{% endif %}
+    </dl>
+
+    {% if page.tags %}
+    <div class="profile-tags">
+      {% for tag in page.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
+    </div>
+    {% endif %}
+  </header>
+
+  <div class="profile-body">
+    {{ content }}
+  </div>
+
+  {% if page.providerId %}
+  <div class="post-related">
+    <a href="{{ site.vokda_app_url }}/voices?provider={{ page.providerId }}" class="related-link external" target="_blank" rel="noopener">
+      Browse voices on Vokda →
+    </a>
+  </div>
+  {% endif %}
+
+  <footer class="profile-footer">
+    <a href="{{ page.collection | prepend: '/' | append: '/' | relative_url }}" class="back-link">← Back</a>
+  </footer>
+</article>

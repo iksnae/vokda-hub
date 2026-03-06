@@ -1,0 +1,19 @@
+---
+layout: default
+---
+<article class="guide">
+  <header class="guide-header">
+    <span class="label">Guide</span>
+    <h1>{{ page.title }}</h1>
+    {% if page.summary %}<p class="guide-summary">{{ page.summary }}</p>{% endif %}
+    {% if page.updated %}<p class="guide-updated">Last updated: {{ page.updated | date: "%B %-d, %Y" }}</p>{% endif %}
+  </header>
+
+  <div class="guide-body">
+    {{ content }}
+  </div>
+
+  <footer class="guide-footer">
+    <a href="{{ '/guides/' | relative_url }}" class="back-link">← All guides</a>
+  </footer>
+</article>

@@ -1,0 +1,25 @@
+---
+layout: default
+title: "TTS Providers"
+---
+
+<div class="page-header">
+  <h1>TTS Providers</h1>
+  <p>Cloud API providers for text-to-speech — compared by quality, latency, language support, and price.</p>
+</div>
+
+<div class="page-content">
+  <div class="provider-grid">
+    {% for provider in site.providers %}
+    <div class="provider-card">
+      <h3><a href="{{ provider.url | relative_url }}">{{ provider.title }}</a></h3>
+      <p>{{ provider.summary | truncatewords: 20 }}</p>
+      <div class="card-meta">
+        <span class="tier tier-{{ provider.tier }}">{{ provider.tier }}</span>
+        {% if provider.languages %}<small>{{ provider.languages }} languages</small>{% endif %}
+        {% if provider.latency %}<small>{{ provider.latency }}</small>{% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>

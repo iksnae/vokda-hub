@@ -1,0 +1,25 @@
+---
+layout: default
+title: "Open Models"
+---
+
+<div class="page-header">
+  <h1>Open Models</h1>
+  <p>Self-hostable, open-source TTS models — Apache 2.0, MIT, and other permissive licenses. Build without API keys or per-character billing.</p>
+</div>
+
+<div class="page-content">
+  <div class="provider-grid">
+    {% for model in site.models %}
+    <div class="provider-card">
+      <h3><a href="{{ model.url | relative_url }}">{{ model.title }}</a></h3>
+      <p>{{ model.summary | truncatewords: 20 }}</p>
+      <div class="card-meta">
+        {% if model.license %}<span class="tag">{{ model.license }}</span>{% endif %}
+        {% if model.parameters %}<small>{{ model.parameters }}</small>{% endif %}
+        {% if model.apple_silicon %}<small>Apple Silicon ✓</small>{% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>

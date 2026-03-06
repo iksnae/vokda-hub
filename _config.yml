@@ -1,0 +1,63 @@
+title: Vokda Hub
+description: The central destination for TTS news, model tracking, guides, and provider profiles.
+url: https://hub.vokda.iknsae.com
+baseurl: ""
+
+author:
+  name: Vokda
+  email: hello@vokda.com
+
+collections:
+  guides:
+    output: true
+    permalink: /guides/:slug/
+  providers:
+    output: true
+    permalink: /providers/:slug/
+  models:
+    output: true
+    permalink: /models/:slug/
+
+permalink: /news/:year/:month/:day/:title/
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+feed:
+  path: api/feed.xml
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+      type: "guides"
+    values:
+      layout: "guide"
+  - scope:
+      path: ""
+      type: "providers"
+    values:
+      layout: "profile"
+  - scope:
+      path: ""
+      type: "models"
+    values:
+      layout: "profile"
+
+# Cross-link to the Vokda app
+vokda_app_url: https://vokda.iknsae.com
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - TASK.md
+  - hub-architecture.md
+  - voice-model-candidates.md
+  - node_modules
+  - vendor

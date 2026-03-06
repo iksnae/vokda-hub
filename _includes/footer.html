@@ -1,0 +1,24 @@
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="{{ '/' | relative_url }}" class="footer-logo">Vokda Hub</a>
+      <p>The central destination for TTS news, model tracking, and voice discovery.</p>
+    </div>
+    <nav class="footer-nav">
+      <ul>
+        <li><a href="{{ '/news/' | relative_url }}">News</a></li>
+        <li><a href="{{ '/guides/' | relative_url }}">Guides</a></li>
+        <li><a href="{{ '/providers/' | relative_url }}">Providers</a></li>
+        <li><a href="{{ '/models/' | relative_url }}">Models</a></li>
+      </ul>
+      <ul>
+        <li><a href="{{ site.vokda_app_url }}" target="_blank" rel="noopener">Vokda App</a></li>
+        <li><a href="{{ '/api/feed.xml' | relative_url }}">RSS Feed</a></li>
+        <li><a href="{{ '/api/news.json' | relative_url }}">API</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="footer-bottom">
+    <p>© {{ site.time | date: "%Y" }} Vokda. Built with Jekyll.</p>
+  </div>
+</footer>

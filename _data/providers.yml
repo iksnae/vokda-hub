@@ -1,0 +1,115 @@
+- id: cartesia
+  name: Cartesia
+  tier: enterprise
+  type: cloud_provider
+  languages: "40+"
+  voices: "Named + custom clones"
+  latency: "Sub-80ms"
+  pricing: "Pay-per-character"
+  free_tier: true
+  highlights:
+    - Sub-80ms streaming latency
+    - Real emotional expression (not SSML)
+    - Instant + Pro voice cloning
+    - SOC 2, HIPAA, PCI certified
+  best_for: Real-time voice agents
+
+- id: elevenlabs
+  name: ElevenLabs
+  tier: enterprise
+  type: cloud_provider
+  languages: "29"
+  voices: "3,000+"
+  latency: "Sub-100ms (Flash)"
+  pricing: "Pay-per-character"
+  free_tier: true
+  free_chars: "10,000/month"
+  highlights:
+    - Widest voice catalog (3,000+)
+    - Most expressive output quality
+    - Professional voice cloning
+    - Dubbing and localization
+  best_for: Narration, characters, creative content
+
+- id: openai
+  name: OpenAI TTS
+  tier: startup
+  type: cloud_provider
+  languages: "57+"
+  voices: "6 built-in"
+  latency: "~200ms"
+  pricing: "$0.015/1K chars (TTS-1), $0.030/1K chars (TTS-1-HD)"
+  free_tier: false
+  highlights:
+    - Simplest API in the category
+    - Consistent, reliable output
+    - Broad language support
+    - Single vendor with OpenAI LLMs
+  best_for: OpenAI-stack teams, broad language coverage
+
+- id: deepgram
+  name: Deepgram Aura-2
+  tier: startup
+  type: cloud_provider
+  languages: "English (US, AU, PH)"
+  voices: "40+"
+  latency: "Sub-200ms"
+  pricing: "$0.030/1K chars"
+  free_tier: false
+  highlights:
+    - Domain-tuned pronunciation (medical, legal, finance)
+    - 40+ named mythological character voices
+    - On-prem deployment available
+    - Sub-200ms latency
+  best_for: Domain-specific accuracy (healthcare, finance, legal)
+
+- id: aws-polly
+  name: AWS Polly
+  tier: enterprise
+  type: cloud_provider
+  languages: "30+"
+  voices: "60+"
+  latency: "~300ms (Neural)"
+  pricing: "$0.004/1K chars (Standard), $0.016/1K chars (Neural)"
+  free_tier: true
+  free_chars: "5M chars/month for 12 months (new accounts)"
+  highlights:
+    - Deep AWS ecosystem integration
+    - Extensive SSML support
+    - Custom pronunciation lexicons
+    - Mature, enterprise-supported
+  best_for: AWS-native architectures
+
+- id: azure-speech
+  name: Azure AI Speech
+  tier: enterprise
+  type: cloud_provider
+  languages: "140+"
+  voices: "400+"
+  latency: "~200ms"
+  pricing: "$0.016/1K chars (Neural)"
+  free_tier: true
+  free_chars: "500,000/month"
+  highlights:
+    - Most language coverage (140+ languages)
+    - 400+ neural voices
+    - Speaking styles (emotional delivery)
+    - Custom Neural Voice
+  best_for: Global multilingual deployments
+
+- id: google-cloud-tts
+  name: Google Cloud TTS
+  tier: startup
+  type: cloud_provider
+  languages: "40+"
+  voices: "380+"
+  latency: "~250ms"
+  pricing: "$0.016/1K chars (WaveNet/Neural2)"
+  free_tier: true
+  free_chars: "1M/month WaveNet + 1M/month Neural2"
+  highlights:
+    - Most generous free tier
+    - WaveNet and Neural2 quality
+    - Multilingual voice support
+    - Deep GCP integration
+  best_for: GCP-native stacks, generous free tier

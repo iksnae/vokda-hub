@@ -1,0 +1,19 @@
+---
+---
+{
+  "generated": "{{ site.time | date_to_xmlschema }}",
+  "items": [{% for provider in site.providers %}
+    {
+      "id": {{ provider.providerId | jsonify }},
+      "title": {{ provider.title | jsonify }},
+      "tier": {{ provider.tier | jsonify }},
+      "url": {{ provider.url | prepend: site.url | jsonify }},
+      "summary": {{ provider.summary | default: "" | jsonify }},
+      "pricing": {{ provider.pricing | default: "" | jsonify }},
+      "languages": {{ provider.languages | jsonify }},
+      "voices": {{ provider.voices | jsonify }},
+      "latency": {{ provider.latency | default: null | jsonify }},
+      "tags": {{ provider.tags | jsonify }}
+    }{% unless forloop.last %},{% endunless %}{% endfor %}
+  ]
+}
