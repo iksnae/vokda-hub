@@ -1,7 +1,34 @@
 {
-  "generated": "2026-03-06T21:15:01+00:00",
-  "count": 10,
+  "generated": "2026-03-07T00:13:55+00:00",
+  "count": 13,
   "items": [
+    {
+      "title": "VoiceSculptor: Design a Voice With Words, Not Sliders",
+      "date": "2026-03-06",
+      "slug": "voicesculptor-instruction-voice-design",
+      "url": "https://hub.vokda.iknsae.com/news/2026/03/06/voicesculptor-instruction-voice-design/",
+      "summary": "Northwestern Polytechnical University releases VoiceSculptor — an open-source system combining instruction-following voice design (describe pitch, age, emotion, style in plain language) with high-fidelity voice cloning in a single framework.",
+      "tags": ["research","open-source","voice-design","instruction-following"],
+      "providerId": null
+    },
+    {
+      "title": "Habibi: The First Unified TTS Model for 20+ Arabic Dialects",
+      "date": "2026-03-06",
+      "slug": "habibi-arabic-dialect-tts",
+      "url": "https://hub.vokda.iknsae.com/news/2026/03/06/habibi-arabic-dialect-tts/",
+      "summary": "Shanghai Jiao Tong University's X-LANCE Lab releases Habibi — an open-source TTS suite unifying 20+ Arabic dialects with zero-shot voice cloning, outperforming leading commercial services. From the author of F5-TTS.",
+      "tags": ["research","open-source","arabic","multilingual"],
+      "providerId": null
+    },
+    {
+      "title": "CosyVoice 2: Alibaba's Streaming TTS Hits Human-Parity Naturalness",
+      "date": "2026-03-06",
+      "slug": "cosyvoice-2-streaming-human-parity",
+      "url": "https://hub.vokda.iknsae.com/news/2026/03/06/cosyvoice-2-streaming-human-parity/",
+      "summary": "CosyVoice 2 achieves human-parity naturalness in streaming mode by combining a pre-trained LLM backbone with chunk-aware causal flow matching — single model handles both streaming and non-streaming synthesis.",
+      "tags": ["research","open-source","alibaba","streaming"],
+      "providerId": null
+    },
     {
       "title": "Cartesia Releases Sonic 3: Sub-80ms Latency, Real Laughter, and 40+ Languages",
       "date": "2026-03-05",

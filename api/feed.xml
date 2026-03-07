@@ -1,4 +1,150 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://hub.vokda.iknsae.com/api/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hub.vokda.iknsae.com/" rel="alternate" type="text/html" /><updated>2026-03-06T21:15:01+00:00</updated><id>https://hub.vokda.iknsae.com/api/feed.xml</id><title type="html">Vokda Hub</title><subtitle>The central destination for TTS news, model tracking, guides, and provider profiles.</subtitle><author><name>Vokda</name><email>hello@vokda.com</email></author><entry><title type="html">Cartesia Releases Sonic 3: Sub-80ms Latency, Real Laughter, and 40+ Languages</title><link href="https://hub.vokda.iknsae.com/news/2026/03/05/cartesia-sonic-3/" rel="alternate" type="text/html" title="Cartesia Releases Sonic 3: Sub-80ms Latency, Real Laughter, and 40+ Languages" /><published>2026-03-05T00:00:00+00:00</published><updated>2026-03-05T00:00:00+00:00</updated><id>https://hub.vokda.iknsae.com/news/2026/03/05/cartesia-sonic-3</id><content type="html" xml:base="https://hub.vokda.iknsae.com/news/2026/03/05/cartesia-sonic-3/"><![CDATA[<p>Cartesia has released Sonic 3, the latest version of their flagship text-to-speech model — and it’s the one that other providers are now quietly benchmarking against.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://hub.vokda.iknsae.com/api/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hub.vokda.iknsae.com/" rel="alternate" type="text/html" /><updated>2026-03-07T00:13:55+00:00</updated><id>https://hub.vokda.iknsae.com/api/feed.xml</id><title type="html">Vokda Hub</title><subtitle>The central destination for TTS news, model tracking, guides, and provider profiles.</subtitle><author><name>Vokda</name><email>hello@vokda.com</email></author><entry><title type="html">CosyVoice 2: Alibaba’s Streaming TTS Hits Human-Parity Naturalness</title><link href="https://hub.vokda.iknsae.com/news/2026/03/06/cosyvoice-2-streaming-human-parity/" rel="alternate" type="text/html" title="CosyVoice 2: Alibaba’s Streaming TTS Hits Human-Parity Naturalness" /><published>2026-03-06T00:00:00+00:00</published><updated>2026-03-06T00:00:00+00:00</updated><id>https://hub.vokda.iknsae.com/news/2026/03/06/cosyvoice-2-streaming-human-parity</id><content type="html" xml:base="https://hub.vokda.iknsae.com/news/2026/03/06/cosyvoice-2-streaming-human-parity/"><![CDATA[<p>Alibaba’s FunAudioLLM team released CosyVoice 2, an improved streaming speech synthesis model that claims human-parity naturalness with minimal response latency. The paper and weights are available at <a href="https://github.com/FunAudioLLM/CosyVoice">github.com/FunAudioLLM/CosyVoice</a>.</p>
+
+<p>The original CosyVoice was already strong — multilingual, high prosody naturalness, solid speaker similarity in zero-shot settings. CosyVoice 2 is a systematic overhaul focused on one thing the original didn’t nail: <strong>making streaming work without quality loss</strong>.</p>
+
+<h2 id="the-core-problem-with-streaming-tts">The Core Problem With Streaming TTS</h2>
+
+<p>Most TTS models are built for offline (non-streaming) generation: process the full text, generate the full audio, deliver it. Streaming requires the model to produce audio chunks incrementally while more text is still being processed — which creates a tension between latency (start delivering audio quickly) and quality (the model has less context when generating each chunk).</p>
+
+<p>The standard approaches either sacrifice quality for speed or require separate models for streaming and non-streaming use cases. CosyVoice 2 takes a different approach.</p>
+
+<h2 id="whats-new">What’s New</h2>
+
+<p><strong>Finite-scalar quantization (FSQ)</strong> replaces the original residual vector quantization for speech tokens. FSQ improves codebook utilization — more of the learned codebook gets used in practice, which means the model’s representations are richer and less wasteful. Better codebook utilization translates directly to higher-quality reconstructed audio.</p>
+
+<p><strong>LLM backbone</strong> — rather than training a custom text-speech language model from scratch, CosyVoice 2 uses a pre-trained LLM directly as the backbone for the text-to-speech token prediction step. This is architecturally significant: pre-trained LLMs have better text understanding, better handling of rare words and unusual syntax, and better prosody modeling from the sheer scale of their pre-training. Plugging one in rather than training a smaller custom model is both cheaper and better.</p>
+
+<p><strong>Chunk-aware causal flow matching</strong> is the key innovation for streaming. Flow matching generates audio by learning a continuous transformation from noise to speech signal. The “chunk-aware causal” variant divides the generation into chunks that can be processed sequentially while respecting causal constraints — each chunk depends only on previously processed context, not future text. This enables streaming delivery without a separate streaming model:</p>
+
+<ul>
+  <li><strong>Streaming mode:</strong> Generate and deliver audio chunks incrementally as text arrives</li>
+  <li><strong>Non-streaming mode:</strong> Same model, same weights — process full context for maximum quality</li>
+  <li><strong>Virtually lossless</strong> quality in streaming vs. non-streaming mode</li>
+</ul>
+
+<h2 id="why-this-matters-for-voice-agents">Why This Matters for Voice Agents</h2>
+
+<p>The practical implication: a single CosyVoice 2 deployment handles both use cases — real-time conversational applications <em>and</em> high-quality batch generation — without running two separate models or maintaining two serving pipelines. For teams building mixed-use voice infrastructure, that simplification has real operational value.</p>
+
+<p>The latency numbers (from their demo page at <a href="https://funaudiollm.github.io/cosyvoice2">funaudiollm.github.io/cosyvoice2</a>) show response latency competitive with commercial streaming APIs while maintaining naturalness that evaluators rated on par with human speech.</p>
+
+<h2 id="open-source">Open Source</h2>
+
+<p>Code and pretrained models: <code class="language-plaintext highlighter-rouge">github.com/FunAudioLLM/CosyVoice</code><br />
+Paper: <a href="https://arxiv.org/abs/2412.10117">arxiv.org/abs/2412.10117</a></p>
+
+<p>Alibaba has been on a run with open audio models — CosyVoice 2 follows Qwen3-TTS (released January 22nd) and continues to show the FunAudioLLM team as one of the most productive groups in open-source speech synthesis.</p>
+
+<p><a href="https://vokda.iknsae.com">Explore open models on Vokda →</a></p>]]></content><author><name>Vokda</name><email>hello@vokda.com</email></author><category term="research" /><category term="open-source" /><category term="alibaba" /><category term="streaming" /><summary type="html"><![CDATA[Alibaba’s FunAudioLLM team released CosyVoice 2, an improved streaming speech synthesis model that claims human-parity naturalness with minimal response latency. The paper and weights are available at github.com/FunAudioLLM/CosyVoice.]]></summary></entry><entry><title type="html">Habibi: The First Unified TTS Model for 20+ Arabic Dialects</title><link href="https://hub.vokda.iknsae.com/news/2026/03/06/habibi-arabic-dialect-tts/" rel="alternate" type="text/html" title="Habibi: The First Unified TTS Model for 20+ Arabic Dialects" /><published>2026-03-06T00:00:00+00:00</published><updated>2026-03-06T00:00:00+00:00</updated><id>https://hub.vokda.iknsae.com/news/2026/03/06/habibi-arabic-dialect-tts</id><content type="html" xml:base="https://hub.vokda.iknsae.com/news/2026/03/06/habibi-arabic-dialect-tts/"><![CDATA[<p>Arabic is spoken by 400 million people across 22 countries — and every country speaks a different dialect. Modern Standard Arabic (MSA) is the written standard, but it’s nobody’s mother tongue. Egyptian Arabic, Levantine Arabic, Gulf Arabic, Moroccan Darija — these are the varieties people actually use, and they differ from each other the way Portuguese differs from Spanish.</p>
+
+<p>For TTS, this has been an unsolved problem. Every major commercial system synthesizes MSA or a single regional variant. Regional dialect support has been limited to near-nonexistent.</p>
+
+<p><strong>Habibi</strong> — “my dear” in Arabic — is the first serious attempt to fix this.</p>
+
+<h2 id="what-it-is">What It Is</h2>
+
+<p>Habibi is a suite of open-source TTS models from Shanghai Jiao Tong University’s X-LANCE Lab, published in January 2026 (<a href="https://arxiv.org/abs/2601.13802">arXiv:2601.13802</a>). The lead author is Yushen Chen — also the creator of <strong>F5-TTS</strong>, which means this model comes with real architectural credibility behind it.</p>
+
+<p>The core achievement: a unified model that covers a <strong>wide range of Arabic dialects</strong>, from high-resource variants (Egyptian, Gulf) to low-resource ones that have essentially no TTS training data.</p>
+
+<h2 id="the-technical-challenge">The Technical Challenge</h2>
+
+<p>Building unified multi-dialect TTS is hard for reasons that go beyond data scarcity:</p>
+
+<p><strong>Linguistic complexity.</strong> Arabic dialects differ in phoneme inventories, phonological rules, morphology, and prosody. Egyptian Arabic has sounds that Gulf Arabic doesn’t. Moroccan Darija has heavy Berber and French influence. A model trained on one dialect will mispronounce another in unpredictable ways.</p>
+
+<p><strong>Data standardization.</strong> There’s no standardized multi-dialect Arabic speech corpus. The team’s approach: repurpose existing open-source <strong>ASR (speech recognition) corpora</strong> — data collected for transcription, not synthesis. This is a clever inversion: ASR corpora have real speakers saying real things in real dialects, which is exactly what’s needed.</p>
+
+<p><strong>Diacritization.</strong> Written Arabic typically omits vowel marks (diacritics), which creates ambiguity for TTS systems that need to know how to pronounce words. Habibi handles this <strong>without requiring text diacritization</strong> — the model infers pronunciation from context, the way a human reader would.</p>
+
+<h2 id="linguistically-informed-curriculum-learning">Linguistically-Informed Curriculum Learning</h2>
+
+<p>The training approach is the key innovation: <strong>curriculum learning</strong> structured around linguistic relationships between dialects. Rather than treating each dialect as an independent task, the model is trained in stages that respect how the dialects relate to each other — starting with higher-resource, more standardized varieties and progressively incorporating lower-resource dialects.</p>
+
+<p>This allows knowledge to transfer across the dialect family rather than each dialect being learned in isolation. A model that understands Gulf Arabic phonology has a head start on learning Yemeni Arabic; a model trained on Levantine Arabic can generalize to Palestinian Arabic more easily.</p>
+
+<h2 id="performance">Performance</h2>
+
+<p>The paper reports that Habibi <strong>outperforms the leading commercial service</strong> in generation quality across dialects — a notable claim given that commercial systems have significantly more resources.</p>
+
+<p>Additional capabilities:</p>
+<ul>
+  <li><strong>Zero-shot voice cloning</strong> via in-context learning — provide a reference clip, the model clones the voice’s characteristics for any dialect</li>
+  <li><strong>Extensible</strong> to new dialects without full retraining</li>
+  <li>First systematic benchmark for multi-dialect Arabic TTS (released alongside the model)</li>
+</ul>
+
+<h2 id="why-it-matters-beyond-arabic">Why It Matters Beyond Arabic</h2>
+
+<p>The immediate impact is clear: millions of Arabic speakers finally get TTS that sounds like them rather than a newscaster.</p>
+
+<p>But the broader significance is methodological. Habibi demonstrates that the ASR-corpus-repurposing approach works for low-resource dialect synthesis — a playbook that applies to any under-resourced language family: South Asian languages, African languages, Southeast Asian dialect clusters. The curriculum learning framework scales.</p>
+
+<p>From the SWivid GitHub: <a href="https://SWivid.github.io/Habibi/">SWivid.github.io/Habibi</a><br />
+Paper: <a href="https://arxiv.org/abs/2601.13802">arxiv.org/abs/2601.13802</a></p>
+
+<p><a href="https://vokda.iknsae.com">Explore open models on Vokda →</a></p>]]></content><author><name>Vokda</name><email>hello@vokda.com</email></author><category term="research" /><category term="open-source" /><category term="arabic" /><category term="multilingual" /><summary type="html"><![CDATA[Arabic is spoken by 400 million people across 22 countries — and every country speaks a different dialect. Modern Standard Arabic (MSA) is the written standard, but it’s nobody’s mother tongue. Egyptian Arabic, Levantine Arabic, Gulf Arabic, Moroccan Darija — these are the varieties people actually use, and they differ from each other the way Portuguese differs from Spanish.]]></summary></entry><entry><title type="html">VoiceSculptor: Design a Voice With Words, Not Sliders</title><link href="https://hub.vokda.iknsae.com/news/2026/03/06/voicesculptor-instruction-voice-design/" rel="alternate" type="text/html" title="VoiceSculptor: Design a Voice With Words, Not Sliders" /><published>2026-03-06T00:00:00+00:00</published><updated>2026-03-06T00:00:00+00:00</updated><id>https://hub.vokda.iknsae.com/news/2026/03/06/voicesculptor-instruction-voice-design</id><content type="html" xml:base="https://hub.vokda.iknsae.com/news/2026/03/06/voicesculptor-instruction-voice-design/"><![CDATA[<p>The standard TTS workflow has a narrow voice selection step: pick from a list, upload a reference clip, or accept whatever the API gives you. <strong>VoiceSculptor</strong> from Northwestern Polytechnical University’s ASLP group takes a different approach — describe the voice you want in natural language, and the system builds it.</p>
+
+<p>The paper (<a href="https://arxiv.org/abs/2601.10629">arXiv:2601.10629</a>) was published in January 2026 and the code and pretrained models are fully open-sourced.</p>
+
+<h2 id="the-problem-it-solves">The Problem It Solves</h2>
+
+<p>Fine-grained voice control has been a gap in open-source TTS for a long time. Commercial systems like ElevenLabs’ audio tags (<code class="language-plaintext highlighter-rouge">[excited]</code>, <code class="language-plaintext highlighter-rouge">[whispers]</code>) and Qwen3-TTS’s voice design feature offer varying degrees of natural-language control, but they’re either closed-source or limited to a small attribute set.</p>
+
+<p>What’s missing in open-source: a system that lets you specify attributes like <strong>pitch, speaking rate, age, emotion, and style</strong> in free-form text and get predictable, high-quality results. VoiceSculptor is the first open-source system to address this coherently.</p>
+
+<h2 id="how-it-works">How It Works</h2>
+
+<p>VoiceSculptor is a two-stage pipeline:</p>
+
+<p><strong>Stage 1: Voice Design</strong><br />
+You provide a natural-language description of the voice you want:</p>
+
+<blockquote>
+  <p>“A calm, middle-aged man with a slight Southern American accent. Deep voice, measured pace, sounds trustworthy.”</p>
+</blockquote>
+
+<p>The system uses a language model to interpret this description and generate a <strong>speaker embedding</strong> — a compact vector representation capturing the described vocal characteristics. Crucially, this uses <strong>Retrieval-Augmented Generation (RAG)</strong>: the model retrieves similar voice descriptions and their corresponding embeddings from a reference database, then synthesizes a new embedding that fits your description.</p>
+
+<p>This RAG approach enables iterative refinement — if the output isn’t right, you can describe what to adjust:</p>
+
+<blockquote>
+  <p>“A bit younger, more energetic, less Southern.”</p>
+</blockquote>
+
+<p>The system retrieves updated references and adjusts the embedding accordingly.</p>
+
+<p><strong>Stage 2: Voice Cloning</strong><br />
+The designed speaker embedding is rendered into a reference waveform, which is then fed into a high-fidelity voice cloning model. The cloning model uses that reference to condition synthesis of your actual text.</p>
+
+<p>The two-stage separation matters: voice design and voice rendering are decoupled, which means either stage can be improved independently.</p>
+
+<h2 id="what-you-can-control">What You Can Control</h2>
+
+<ul>
+  <li><strong>Pitch</strong> — high, low, conversational, dramatic</li>
+  <li><strong>Speaking rate</strong> — measured, fast, casual</li>
+  <li><strong>Age</strong> — young, middle-aged, elderly</li>
+  <li><strong>Emotion</strong> — calm, warm, authoritative, energetic</li>
+  <li><strong>Style</strong> — podcast host, newscaster, character, narrator</li>
+  <li><strong>Accent/dialect</strong> — with reasonable latitude</li>
+  <li><strong>Multi-attribute combinations</strong> — all of the above simultaneously</li>
+</ul>
+
+<h2 id="benchmark-results">Benchmark Results</h2>
+
+<p>VoiceSculptor achieves open-source state-of-the-art on <strong>InstructTTSEval-Zh</strong>, the primary benchmark for instruction-controlled TTS. The evaluation measures how well synthesized speech matches the described attributes — not just audio quality, but attribute fidelity.</p>
+
+<h2 id="why-it-matters">Why It Matters</h2>
+
+<p>The Qwen3-TTS voice design feature covers similar ground (describe a voice, get it), but it’s tied to the Qwen3 model family and requires its specific architecture. VoiceSculptor is architecture-agnostic — the voice design frontend can in principle be paired with different cloning backends.</p>
+
+<p>For developers building products that need custom voices without a recording session — branded assistants, character voices, personalized narration — VoiceSculptor provides a path that’s never been available in open-source before.</p>
+
+<p>Paper: <a href="https://arxiv.org/abs/2601.10629">arxiv.org/abs/2601.10629</a><br />
+Code + models: Northwestern Polytechnical University ASLP / WeNet Open Source Community</p>
+
+<p><a href="https://vokda.iknsae.com">Explore open models on Vokda →</a></p>]]></content><author><name>Vokda</name><email>hello@vokda.com</email></author><category term="research" /><category term="open-source" /><category term="voice-design" /><category term="instruction-following" /><summary type="html"><![CDATA[The standard TTS workflow has a narrow voice selection step: pick from a list, upload a reference clip, or accept whatever the API gives you. VoiceSculptor from Northwestern Polytechnical University’s ASLP group takes a different approach — describe the voice you want in natural language, and the system builds it.]]></summary></entry><entry><title type="html">Cartesia Releases Sonic 3: Sub-80ms Latency, Real Laughter, and 40+ Languages</title><link href="https://hub.vokda.iknsae.com/news/2026/03/05/cartesia-sonic-3/" rel="alternate" type="text/html" title="Cartesia Releases Sonic 3: Sub-80ms Latency, Real Laughter, and 40+ Languages" /><published>2026-03-05T00:00:00+00:00</published><updated>2026-03-05T00:00:00+00:00</updated><id>https://hub.vokda.iknsae.com/news/2026/03/05/cartesia-sonic-3</id><content type="html" xml:base="https://hub.vokda.iknsae.com/news/2026/03/05/cartesia-sonic-3/"><![CDATA[<p>Cartesia has released Sonic 3, the latest version of their flagship text-to-speech model — and it’s the one that other providers are now quietly benchmarking against.</p>
 
 <h2 id="whats-new-in-sonic-3">What’s New in Sonic 3</h2>
 
@@ -339,173 +485,4 @@ The answer is [emphatically] no.
 
 <p>For voice agents and real-time applications, hold off until the conversational v3 variant ships.</p>
 
-<p><a href="https://vokda.iknsae.com">Explore ElevenLabs voices on Vokda →</a></p>]]></content><author><name>Vokda</name><email>hello@vokda.com</email></author><category term="release" /><category term="elevenlabs" /><summary type="html"><![CDATA[After several months in alpha, ElevenLabs shipped Eleven v3 as generally available on February 2nd. It’s a meaningful generational step from Multilingual v2 — not just incremental quality improvements, but a fundamentally different approach to how you direct voice output.]]></summary></entry><entry><title type="html">Qwen3-TTS: Alibaba Releases Open-Source TTS Trained on 5 Million Hours</title><link href="https://hub.vokda.iknsae.com/news/2026/01/22/qwen3-tts-alibaba-open-source/" rel="alternate" type="text/html" title="Qwen3-TTS: Alibaba Releases Open-Source TTS Trained on 5 Million Hours" /><published>2026-01-22T00:00:00+00:00</published><updated>2026-01-22T00:00:00+00:00</updated><id>https://hub.vokda.iknsae.com/news/2026/01/22/qwen3-tts-alibaba-open-source</id><content type="html" xml:base="https://hub.vokda.iknsae.com/news/2026/01/22/qwen3-tts-alibaba-open-source/"><![CDATA[<p>Alibaba’s Qwen team released Qwen3-TTS on January 22nd — a series of open-source TTS models with two size variants (0.6B and 1.7B), covering 10 languages with voice cloning, streaming, and a capability that stands out: <strong>voice design via natural language instructions</strong>.</p>
-
-<h2 id="what-qwen3-tts-does-differently">What Qwen3-TTS Does Differently</h2>
-
-<p>Most TTS models give you a set of pre-defined voices to choose from. Qwen3-TTS adds <strong>voice design</strong> — you describe the voice you want in natural language and the model generates it:</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Instead of choosing "voice_id: en_us_001"
-# You write:
-</span><span class="n">voice_prompt</span> <span class="o">=</span> <span class="sh">"</span><span class="s">A warm, mid-30s American woman with a slightly husky voice. 
-                Measured pace, sounds like a podcast host.</span><span class="sh">"</span>
-</code></pre></div></div>
-
-<p>The model interprets that description and synthesizes a voice matching those characteristics. Combined with traditional voice cloning (provide reference audio), this gives developers two paths to custom voice creation: describe it from scratch, or clone from an existing recording.</p>
-
-<p>This is a genuinely novel capability for an open-source model. Cloud providers have offered similar features at enterprise pricing tiers. Getting it in an Apache 2.0 model changes the access equation significantly.</p>
-
-<h2 id="scale-of-training">Scale of Training</h2>
-
-<p>Qwen3-TTS was trained on over <strong>5 million hours of speech data</strong> across its 10 covered languages. For context, most open-source TTS models train on thousands to tens of thousands of hours. Five million hours means the model has heard vastly more linguistic variety, accent diversity, and prosodic patterns — which shows up in the output’s naturalness across languages.</p>
-
-<h2 id="languages">Languages</h2>
-
-<p>10 languages with full feature support: <strong>Chinese, English, Japanese, Korean, German, French, Russian, Portuguese, Spanish, and Italian</strong>, plus multiple dialectal voice profiles within supported languages.</p>
-
-<p>The Chinese and Japanese coverage in particular is stronger than most Western-developed TTS models, which tend to treat East Asian languages as afterthoughts.</p>
-
-<h2 id="architecture">Architecture</h2>
-
-<p>The core innovation is the <strong>Qwen3-TTS-Tokenizer-12Hz</strong> — a custom neural codec running at 12Hz that converts audio to discrete tokens. The architecture:</p>
-
-<ol>
-  <li>Text input → semantic tokens via the language model backbone</li>
-  <li>Semantic tokens → acoustic tokens via the 12Hz tokenizer</li>
-  <li>Acoustic tokens → 24kHz waveform via the decoder</li>
-</ol>
-
-<p>Running at 12Hz means 12 acoustic frames per second, which enables streaming output — you start hearing audio before the full generation is complete.</p>
-
-<h2 id="model-sizes">Model Sizes</h2>
-
-<p><strong>Qwen3-TTS-0.6B</strong> — 600M parameters. Faster inference, smaller memory footprint. Good for edge deployment and lower-latency applications where full model quality isn’t needed.</p>
-
-<p><strong>Qwen3-TTS-1.7B</strong> — 1.7B parameters. Higher quality, better voice cloning fidelity, stronger multilingual output. The recommended choice for production quality.</p>
-
-<p>HuggingFace: <code class="language-plaintext highlighter-rouge">Qwen/Qwen3-TTS-0.6B</code> and <code class="language-plaintext highlighter-rouge">Qwen/Qwen3-TTS-1.7B</code><br />
-Paper: <a href="https://arxiv.org/abs/2601.15621">arxiv.org/abs/2601.15621</a></p>
-
-<h2 id="api-access">API Access</h2>
-
-<p>Beyond self-hosting, Qwen3-TTS is available via Alibaba Cloud’s DashScope API for developers who want model quality without infrastructure overhead. vLLM support is included for high-throughput deployments.</p>
-
-<h2 id="who-its-for">Who It’s For</h2>
-
-<p>Qwen3-TTS lands hardest for:</p>
-
-<ul>
-  <li><strong>Asian language applications</strong> — the Chinese and Japanese quality is meaningfully better than other open-source alternatives</li>
-  <li><strong>Multilingual products</strong> needing consistent voice quality across 10 languages</li>
-  <li><strong>Developers wanting custom voice creation</strong> without enterprise cloud API costs</li>
-  <li><strong>Privacy-sensitive applications</strong> — fully self-hostable with no external API dependency</li>
-  <li><strong>Researchers</strong> — the pretraining framework is available for fine-tuning on custom languages and domains</li>
-</ul>
-
-<p>The voice design capability alone makes it worth evaluating for any project where “pick from a list of 6 pre-made voices” isn’t good enough.</p>
-
-<p><a href="https://vokda.iknsae.com">Explore open models on Vokda →</a></p>]]></content><author><name>Vokda</name><email>hello@vokda.com</email></author><category term="release" /><category term="open-source" /><category term="alibaba" /><category term="multilingual" /><summary type="html"><![CDATA[Alibaba’s Qwen team released Qwen3-TTS on January 22nd — a series of open-source TTS models with two size variants (0.6B and 1.7B), covering 10 languages with voice cloning, streaming, and a capability that stands out: voice design via natural language instructions.]]></summary></entry><entry><title type="html">Inworld TTS-1.5 Claims Top Quality Benchmark at $10/1M Chars — 25x Cheaper Than Alternatives</title><link href="https://hub.vokda.iknsae.com/news/2026/01/21/inworld-tts-1-5-pricing-disruption/" rel="alternate" type="text/html" title="Inworld TTS-1.5 Claims Top Quality Benchmark at $10/1M Chars — 25x Cheaper Than Alternatives" /><published>2026-01-21T00:00:00+00:00</published><updated>2026-01-21T00:00:00+00:00</updated><id>https://hub.vokda.iknsae.com/news/2026/01/21/inworld-tts-1-5-pricing-disruption</id><content type="html" xml:base="https://hub.vokda.iknsae.com/news/2026/01/21/inworld-tts-1-5-pricing-disruption/"><![CDATA[<p>Inworld AI launched TTS-1.5 on January 21st with a provocative claim: best quality <em>and</em> cheapest price. Those two things don’t usually go together, and the TTS industry noticed.</p>
-
-<h2 id="the-numbers">The Numbers</h2>
-
-<ul>
-  <li><strong>Pricing:</strong> $5–10 per million characters (TTS-1.5 Mini at $5, TTS-1.5 Max at $10)</li>
-  <li><strong>Benchmark:</strong> ELO score of 1,160 — which Inworld claims is #1 in quality evaluations for real-time TTS</li>
-  <li><strong>Latency:</strong> Sub-250ms time-to-first-audio for TTS-1.5 Max</li>
-  <li><strong>Comparison:</strong> ElevenLabs Multilingual v2 at $206/1M characters for their #6-ranked model</li>
-</ul>
-
-<p>If accurate, TTS-1.5 Max is 20x cheaper than ElevenLabs at higher ranked quality. Even against the cheapest commodity providers (AWS Polly Neural at $16/1M, Google Neural2 at $16/1M), Inworld is 1.6x cheaper.</p>
-
-<h2 id="why-the-price-gap-is-possible">Why the Price Gap Is Possible</h2>
-
-<p>Inworld built their TTS infrastructure from scratch rather than adapting existing models. They’ve been running voice AI for game characters at scale since 2021 — processing enormous volumes of TTS for NPC dialog in games. That operational scale allowed them to build infrastructure optimized for cost efficiency in a way that general-purpose providers haven’t.</p>
-
-<p>The result, according to their announcement, is a fundamentally different cost structure — not a temporary introductory price designed to acquire customers.</p>
-
-<h2 id="what-you-actually-get">What You Actually Get</h2>
-
-<p>Two model variants:</p>
-
-<p><strong>TTS-1.5 Mini</strong> — $5/1M chars. Optimized for minimal latency. Best when time-to-first-audio is the absolute priority and cost is the binding constraint.</p>
-
-<p><strong>TTS-1.5 Max</strong> — $10/1M chars. Best quality, sub-250ms latency. Their recommended default for most production applications.</p>
-
-<p>Enterprise plans include data sovereignty options — audio processing stays within your infrastructure. This is meaningful for regulated industries and privacy-sensitive applications.</p>
-
-<h2 id="the-benchmark-skepticism">The Benchmark Skepticism</h2>
-
-<p>Inworld’s ELO benchmark is self-reported, based on their own evaluation framework. They claim #1 ranking with a score of 1,160. The Vokda position: treat benchmark rankings from providers about their own products with appropriate skepticism.</p>
-
-<p>That said, the pricing story doesn’t depend on the benchmark being accurate. At $10/1M chars, TTS-1.5 Max is worth evaluating on its own terms regardless of where it ranks. Independent evaluations from developers on Reddit and the HuggingFace community put it in the top tier for naturalness, though not unanimously ahead of Cartesia Sonic 3 for real-time feel.</p>
-
-<h2 id="practical-implications">Practical Implications</h2>
-
-<p>If you’re currently paying ElevenLabs rates for a non-creative-content use case (an assistant voice, notifications, documentation readback), Inworld TTS-1.5 is worth a direct comparison. The quality ceiling might be lower for highly expressive content, but for utility voice applications, the cost savings at scale are significant.</p>
-
-<p>At 10M characters/month:</p>
-<ul>
-  <li>ElevenLabs Multilingual v2: ~$2,060</li>
-  <li>Google Neural2: ~$160</li>
-  <li>AWS Polly Neural: ~$160</li>
-  <li><strong>Inworld TTS-1.5 Max: ~$100</strong></li>
-</ul>
-
-<p>That delta compounds fast.</p>
-
-<p><a href="https://vokda.iknsae.com">Browse voices on Vokda →</a></p>]]></content><author><name>Vokda</name><email>hello@vokda.com</email></author><category term="release" /><category term="inworld" /><category term="pricing" /><summary type="html"><![CDATA[Inworld AI launched TTS-1.5 on January 21st with a provocative claim: best quality and cheapest price. Those two things don’t usually go together, and the TTS industry noticed.]]></summary></entry><entry><title type="html">Play.ht Is Gone: What Meta’s Acquisition Means for TTS Developers</title><link href="https://hub.vokda.iknsae.com/news/2026/01/05/playht-shutdown-meta-acquisition/" rel="alternate" type="text/html" title="Play.ht Is Gone: What Meta’s Acquisition Means for TTS Developers" /><published>2026-01-05T00:00:00+00:00</published><updated>2026-01-05T00:00:00+00:00</updated><id>https://hub.vokda.iknsae.com/news/2026/01/05/playht-shutdown-meta-acquisition</id><content type="html" xml:base="https://hub.vokda.iknsae.com/news/2026/01/05/playht-shutdown-meta-acquisition/"><![CDATA[<p>Play.ht is gone. If you built on it, you already know. If you’re evaluating TTS providers and still see it listed in comparison articles from last year, here’s the status: <strong>API shut down July 26, 2025. Full platform retired December 31, 2025.</strong></p>
-
-<p>This is worth writing about not just as a migration advisory, but as an industry moment — a cautionary example of what happens when a key piece of developer infrastructure gets acquired by a platform company with different priorities.</p>
-
-<h2 id="what-happened">What Happened</h2>
-
-<p>Meta acquired Play.ht in July 2025. The motivation is clear in hindsight: Play.ht had built PlayAI, a voice AI technology that Meta wanted for internal products (likely Meta AI voice features on WhatsApp, Instagram, Ray-Ban glasses, and future hardware). The team and technology moved into Meta’s AI infrastructure.</p>
-
-<p>The timeline:</p>
-<ul>
-  <li><strong>July 2025</strong> — Acquisition announced. API shutdown date set for July 26th.</li>
-  <li><strong>July 26, 2025</strong> — API access terminated. Developers had days to weeks of notice depending on when they read the announcement.</li>
-  <li><strong>December 31, 2025</strong> — Studio, voice agents, saved audio, and all user data purged.</li>
-  <li><strong>January 2026</strong> — All remaining API access locked out. Data export window closed.</li>
-</ul>
-
-<p>Meta’s shutdown was faster than most acquisitions of this type. Developers who had built on Play.ht’s API — which was competitive with ElevenLabs on voice cloning and had good pricing — found themselves scrambling.</p>
-
-<h2 id="why-this-matters">Why This Matters</h2>
-
-<p>Play.ht wasn’t a minor player. It was one of the three or four providers developers seriously evaluated alongside ElevenLabs when choosing a TTS stack. It had:</p>
-
-<ul>
-  <li>A strong voice cloning product (PlayHT 2.0 was well-regarded)</li>
-  <li>Competitive pricing</li>
-  <li>Good latency</li>
-  <li>A large voice catalog</li>
-</ul>
-
-<p>None of that survived the acquisition.</p>
-
-<p>The lesson — one that gets relearned every few years in developer tooling — is that building on single-vendor cloud APIs creates dependency risk that has no technical mitigation. If the API disappears, your product disappears with it.</p>
-
-<h2 id="migration-paths">Migration Paths</h2>
-
-<p>For developers who were on Play.ht and are still landing on alternatives, the landscape in early 2026:</p>
-
-<p><strong>Best overall replacement (voice quality + cloning):</strong> ElevenLabs. The closest feature match — strong voice catalog, professional cloning tiers, well-maintained API.</p>
-
-<p><strong>Best for real-time agents:</strong> Cartesia Sonic 3. Lower latency than Play.ht ever achieved, better emotional range.</p>
-
-<p><strong>Best for cost-sensitive migration:</strong> Inworld TTS-1.5 at $5–10/1M chars, or open-source (Kokoro, Orpheus, F5-TTS) for async workloads where you can absorb hosting overhead.</p>
-
-<p><strong>Best for multilingual replacement:</strong> Azure AI Speech (140+ languages) or Google Cloud TTS Neural2.</p>
-
-<h2 id="what-the-tts-vendor-landscape-looks-like-now">What the TTS Vendor Landscape Looks Like Now</h2>
-
-<p>The Play.ht shutdown clarifies something about the market structure: the independent TTS API players are ElevenLabs, Cartesia, Deepgram, and Inworld. Everyone else is either a cloud hyperscaler (AWS, Azure, Google) or an open-source model.</p>
-
-<p>That’s actually a healthier landscape than it looks. Hyperscalers aren’t going anywhere. The independent providers are either well-capitalized or generating revenue. Open-source is more viable than ever.</p>
-
-<p>But the Play.ht situation is a reminder: <strong>provider diversification isn’t over-engineering — it’s basic resilience.</strong> Abstracting your TTS calls behind a thin adapter layer costs a few hours and can save a migration crisis.</p>
-
-<hr />
-
-<p><em>If you’re migrating from Play.ht, Vokda’s voice catalog covers all the major alternatives with audio samples for direct comparison: <a href="https://vokda.iknsae.com">vokda.iknsae.com</a></em></p>]]></content><author><name>Vokda</name><email>hello@vokda.com</email></author><category term="industry" /><category term="meta" /><category term="acquisition" /><category term="migration" /><summary type="html"><![CDATA[Play.ht is gone. If you built on it, you already know. If you’re evaluating TTS providers and still see it listed in comparison articles from last year, here’s the status: API shut down July 26, 2025. Full platform retired December 31, 2025.]]></summary></entry></feed>
+<p><a href="https://vokda.iknsae.com">Explore ElevenLabs voices on Vokda →</a></p>]]></content><author><name>Vokda</name><email>hello@vokda.com</email></author><category term="release" /><category term="elevenlabs" /><summary type="html"><![CDATA[After several months in alpha, ElevenLabs shipped Eleven v3 as generally available on February 2nd. It’s a meaningful generational step from Multilingual v2 — not just incremental quality improvements, but a fundamentally different approach to how you direct voice output.]]></summary></entry></feed>

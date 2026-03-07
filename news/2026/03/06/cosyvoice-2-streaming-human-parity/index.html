@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CosyVoice 2: Alibaba's Streaming TTS Hits Human-Parity Naturalness — Vokda Hub</title>
+  <meta name="description" content="CosyVoice 2 achieves human-parity naturalness in streaming mode by combining a pre-trained LLM backbone with chunk-aware causal flow matching — single model handles both streaming and non-streaming synthesis." />
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <link rel="alternate" type="application/atom+xml" title="Vokda Hub" href="/api/feed.xml" />
+  <link rel="canonical" href="https://hub.vokda.iknsae.com/news/2026/03/06/cosyvoice-2-streaming-human-parity/" />
+</head>
+<body>
+  <nav class="site-nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <span class="logo-mark">V</span>
+      <span class="logo-text">Vokda <span class="logo-sub">Hub</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/news/" class="active">News</a></li>
+      <li><a href="/guides/" >Guides</a></li>
+      <li><a href="/providers/" >Providers</a></li>
+      <li><a href="/models/" >Models</a></li>
+    </ul>
+    <a href="https://vokda.iknsae.com" class="nav-cta" target="_blank" rel="noopener">Browse Voices →</a>
+  </div>
+</nav>
+
+  <main>
+    <article class="post">
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2026-03-06T00:00:00+00:00">March 6, 2026</time>
+      
+        <span class="divider">·</span>
+        <span class="tags">
+          <span class="tag">research</span><span class="tag">open-source</span><span class="tag">alibaba</span><span class="tag">streaming</span>
+        </span>
+      
+    </div>
+    <h1>CosyVoice 2: Alibaba's Streaming TTS Hits Human-Parity Naturalness</h1>
+    <p class="post-summary">CosyVoice 2 achieves human-parity naturalness in streaming mode by combining a pre-trained LLM backbone with chunk-aware causal flow matching — single model handles both streaming and non-streaming synthesis.</p>
+  </header>
+
+  <div class="post-body">
+    <p>Alibaba’s FunAudioLLM team released CosyVoice 2, an improved streaming speech synthesis model that claims human-parity naturalness with minimal response latency. The paper and weights are available at <a href="https://github.com/FunAudioLLM/CosyVoice">github.com/FunAudioLLM/CosyVoice</a>.</p>
+
+<p>The original CosyVoice was already strong — multilingual, high prosody naturalness, solid speaker similarity in zero-shot settings. CosyVoice 2 is a systematic overhaul focused on one thing the original didn’t nail: <strong>making streaming work without quality loss</strong>.</p>
+
+<h2 id="the-core-problem-with-streaming-tts">The Core Problem With Streaming TTS</h2>
+
+<p>Most TTS models are built for offline (non-streaming) generation: process the full text, generate the full audio, deliver it. Streaming requires the model to produce audio chunks incrementally while more text is still being processed — which creates a tension between latency (start delivering audio quickly) and quality (the model has less context when generating each chunk).</p>
+
+<p>The standard approaches either sacrifice quality for speed or require separate models for streaming and non-streaming use cases. CosyVoice 2 takes a different approach.</p>
+
+<h2 id="whats-new">What’s New</h2>
+
+<p><strong>Finite-scalar quantization (FSQ)</strong> replaces the original residual vector quantization for speech tokens. FSQ improves codebook utilization — more of the learned codebook gets used in practice, which means the model’s representations are richer and less wasteful. Better codebook utilization translates directly to higher-quality reconstructed audio.</p>
+
+<p><strong>LLM backbone</strong> — rather than training a custom text-speech language model from scratch, CosyVoice 2 uses a pre-trained LLM directly as the backbone for the text-to-speech token prediction step. This is architecturally significant: pre-trained LLMs have better text understanding, better handling of rare words and unusual syntax, and better prosody modeling from the sheer scale of their pre-training. Plugging one in rather than training a smaller custom model is both cheaper and better.</p>
+
+<p><strong>Chunk-aware causal flow matching</strong> is the key innovation for streaming. Flow matching generates audio by learning a continuous transformation from noise to speech signal. The “chunk-aware causal” variant divides the generation into chunks that can be processed sequentially while respecting causal constraints — each chunk depends only on previously processed context, not future text. This enables streaming delivery without a separate streaming model:</p>
+
+<ul>
+  <li><strong>Streaming mode:</strong> Generate and deliver audio chunks incrementally as text arrives</li>
+  <li><strong>Non-streaming mode:</strong> Same model, same weights — process full context for maximum quality</li>
+  <li><strong>Virtually lossless</strong> quality in streaming vs. non-streaming mode</li>
+</ul>
+
+<h2 id="why-this-matters-for-voice-agents">Why This Matters for Voice Agents</h2>
+
+<p>The practical implication: a single CosyVoice 2 deployment handles both use cases — real-time conversational applications <em>and</em> high-quality batch generation — without running two separate models or maintaining two serving pipelines. For teams building mixed-use voice infrastructure, that simplification has real operational value.</p>
+
+<p>The latency numbers (from their demo page at <a href="https://funaudiollm.github.io/cosyvoice2">funaudiollm.github.io/cosyvoice2</a>) show response latency competitive with commercial streaming APIs while maintaining naturalness that evaluators rated on par with human speech.</p>
+
+<h2 id="open-source">Open Source</h2>
+
+<p>Code and pretrained models: <code class="language-plaintext highlighter-rouge">github.com/FunAudioLLM/CosyVoice</code><br />
+Paper: <a href="https://arxiv.org/abs/2412.10117">arxiv.org/abs/2412.10117</a></p>
+
+<p>Alibaba has been on a run with open audio models — CosyVoice 2 follows Qwen3-TTS (released January 22nd) and continues to show the FunAudioLLM team as one of the most productive groups in open-source speech synthesis.</p>
+
+<p><a href="https://vokda.iknsae.com">Explore open models on Vokda →</a></p>
+
+  </div>
+
+  
+
+  <footer class="post-footer">
+    <a href="/news/" class="back-link">← All news</a>
+  </footer>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="footer-logo">Vokda Hub</a>
+      <p>The central destination for TTS news, model tracking, and voice discovery.</p>
+    </div>
+    <nav class="footer-nav">
+      <ul>
+        <li><a href="/news/">News</a></li>
+        <li><a href="/guides/">Guides</a></li>
+        <li><a href="/providers/">Providers</a></li>
+        <li><a href="/models/">Models</a></li>
+      </ul>
+      <ul>
+        <li><a href="https://vokda.iknsae.com" target="_blank" rel="noopener">Vokda App</a></li>
+        <li><a href="/api/feed.xml">RSS Feed</a></li>
+        <li><a href="/api/news.json">API</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Vokda. Built with Jekyll.</p>
+  </div>
+</footer>
+
+</body>
+</html>

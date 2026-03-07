@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VoiceSculptor: Design a Voice With Words, Not Sliders — Vokda Hub</title>
+  <meta name="description" content="Northwestern Polytechnical University releases VoiceSculptor — an open-source system combining instruction-following voice design (describe pitch, age, emotion, style in plain language) with high-fidelity voice cloning in a single framework." />
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <link rel="alternate" type="application/atom+xml" title="Vokda Hub" href="/api/feed.xml" />
+  <link rel="canonical" href="https://hub.vokda.iknsae.com/news/2026/03/06/voicesculptor-instruction-voice-design/" />
+</head>
+<body>
+  <nav class="site-nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <span class="logo-mark">V</span>
+      <span class="logo-text">Vokda <span class="logo-sub">Hub</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/news/" class="active">News</a></li>
+      <li><a href="/guides/" >Guides</a></li>
+      <li><a href="/providers/" >Providers</a></li>
+      <li><a href="/models/" >Models</a></li>
+    </ul>
+    <a href="https://vokda.iknsae.com" class="nav-cta" target="_blank" rel="noopener">Browse Voices →</a>
+  </div>
+</nav>
+
+  <main>
+    <article class="post">
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2026-03-06T00:00:00+00:00">March 6, 2026</time>
+      
+        <span class="divider">·</span>
+        <span class="tags">
+          <span class="tag">research</span><span class="tag">open-source</span><span class="tag">voice-design</span><span class="tag">instruction-following</span>
+        </span>
+      
+    </div>
+    <h1>VoiceSculptor: Design a Voice With Words, Not Sliders</h1>
+    <p class="post-summary">Northwestern Polytechnical University releases VoiceSculptor — an open-source system combining instruction-following voice design (describe pitch, age, emotion, style in plain language) with high-fidelity voice cloning in a single framework.</p>
+  </header>
+
+  <div class="post-body">
+    <p>The standard TTS workflow has a narrow voice selection step: pick from a list, upload a reference clip, or accept whatever the API gives you. <strong>VoiceSculptor</strong> from Northwestern Polytechnical University’s ASLP group takes a different approach — describe the voice you want in natural language, and the system builds it.</p>
+
+<p>The paper (<a href="https://arxiv.org/abs/2601.10629">arXiv:2601.10629</a>) was published in January 2026 and the code and pretrained models are fully open-sourced.</p>
+
+<h2 id="the-problem-it-solves">The Problem It Solves</h2>
+
+<p>Fine-grained voice control has been a gap in open-source TTS for a long time. Commercial systems like ElevenLabs’ audio tags (<code class="language-plaintext highlighter-rouge">[excited]</code>, <code class="language-plaintext highlighter-rouge">[whispers]</code>) and Qwen3-TTS’s voice design feature offer varying degrees of natural-language control, but they’re either closed-source or limited to a small attribute set.</p>
+
+<p>What’s missing in open-source: a system that lets you specify attributes like <strong>pitch, speaking rate, age, emotion, and style</strong> in free-form text and get predictable, high-quality results. VoiceSculptor is the first open-source system to address this coherently.</p>
+
+<h2 id="how-it-works">How It Works</h2>
+
+<p>VoiceSculptor is a two-stage pipeline:</p>
+
+<p><strong>Stage 1: Voice Design</strong><br />
+You provide a natural-language description of the voice you want:</p>
+
+<blockquote>
+  <p>“A calm, middle-aged man with a slight Southern American accent. Deep voice, measured pace, sounds trustworthy.”</p>
+</blockquote>
+
+<p>The system uses a language model to interpret this description and generate a <strong>speaker embedding</strong> — a compact vector representation capturing the described vocal characteristics. Crucially, this uses <strong>Retrieval-Augmented Generation (RAG)</strong>: the model retrieves similar voice descriptions and their corresponding embeddings from a reference database, then synthesizes a new embedding that fits your description.</p>
+
+<p>This RAG approach enables iterative refinement — if the output isn’t right, you can describe what to adjust:</p>
+
+<blockquote>
+  <p>“A bit younger, more energetic, less Southern.”</p>
+</blockquote>
+
+<p>The system retrieves updated references and adjusts the embedding accordingly.</p>
+
+<p><strong>Stage 2: Voice Cloning</strong><br />
+The designed speaker embedding is rendered into a reference waveform, which is then fed into a high-fidelity voice cloning model. The cloning model uses that reference to condition synthesis of your actual text.</p>
+
+<p>The two-stage separation matters: voice design and voice rendering are decoupled, which means either stage can be improved independently.</p>
+
+<h2 id="what-you-can-control">What You Can Control</h2>
+
+<ul>
+  <li><strong>Pitch</strong> — high, low, conversational, dramatic</li>
+  <li><strong>Speaking rate</strong> — measured, fast, casual</li>
+  <li><strong>Age</strong> — young, middle-aged, elderly</li>
+  <li><strong>Emotion</strong> — calm, warm, authoritative, energetic</li>
+  <li><strong>Style</strong> — podcast host, newscaster, character, narrator</li>
+  <li><strong>Accent/dialect</strong> — with reasonable latitude</li>
+  <li><strong>Multi-attribute combinations</strong> — all of the above simultaneously</li>
+</ul>
+
+<h2 id="benchmark-results">Benchmark Results</h2>
+
+<p>VoiceSculptor achieves open-source state-of-the-art on <strong>InstructTTSEval-Zh</strong>, the primary benchmark for instruction-controlled TTS. The evaluation measures how well synthesized speech matches the described attributes — not just audio quality, but attribute fidelity.</p>
+
+<h2 id="why-it-matters">Why It Matters</h2>
+
+<p>The Qwen3-TTS voice design feature covers similar ground (describe a voice, get it), but it’s tied to the Qwen3 model family and requires its specific architecture. VoiceSculptor is architecture-agnostic — the voice design frontend can in principle be paired with different cloning backends.</p>
+
+<p>For developers building products that need custom voices without a recording session — branded assistants, character voices, personalized narration — VoiceSculptor provides a path that’s never been available in open-source before.</p>
+
+<p>Paper: <a href="https://arxiv.org/abs/2601.10629">arxiv.org/abs/2601.10629</a><br />
+Code + models: Northwestern Polytechnical University ASLP / WeNet Open Source Community</p>
+
+<p><a href="https://vokda.iknsae.com">Explore open models on Vokda →</a></p>
+
+  </div>
+
+  
+
+  <footer class="post-footer">
+    <a href="/news/" class="back-link">← All news</a>
+  </footer>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="footer-logo">Vokda Hub</a>
+      <p>The central destination for TTS news, model tracking, and voice discovery.</p>
+    </div>
+    <nav class="footer-nav">
+      <ul>
+        <li><a href="/news/">News</a></li>
+        <li><a href="/guides/">Guides</a></li>
+        <li><a href="/providers/">Providers</a></li>
+        <li><a href="/models/">Models</a></li>
+      </ul>
+      <ul>
+        <li><a href="https://vokda.iknsae.com" target="_blank" rel="noopener">Vokda App</a></li>
+        <li><a href="/api/feed.xml">RSS Feed</a></li>
+        <li><a href="/api/news.json">API</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Vokda. Built with Jekyll.</p>
+  </div>
+</footer>
+
+</body>
+</html>
